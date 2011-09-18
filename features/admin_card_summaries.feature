@@ -15,7 +15,6 @@ Feature: Admin card summaries
     When I go to admin cards
     Then I should see "Important"
 
-  @dev
   Scenario: Show edit link of the tag
     Given a card with title "Lo que sea"
     When I go to admin cards

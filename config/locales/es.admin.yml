@@ -3,3 +3,7 @@ es:
     cards:
       index:
         title: 'Fichas'
+
+    colors:
+      index:
+        title: 'Colores'
