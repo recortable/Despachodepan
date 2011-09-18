@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title><%= yield :title %> - Administración | Despachodepan</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag "admin" %>
+</head>
+<body class="admin">
+<div id="menu">
+  <%= link_to 'Despachodepan', admin_root_path, :class => 'lpn' %> >
+  <%= link_to_unless_current 'fichas', admin_cards_path %> |
+  <%= link_to_unless_current 'colores', admin_colors_path %> |
+  <%= link_to_unless_current 'categorías', admin_tags_path %> |
+</div>
+<div id="page">
+  <div id="header" class="banner">
+    <%= t("admin.#{controller.class}") %> <%= content_tag(:span, " - #{flash[:notice]}", :class => 'flash') unless flash[:notice].blank? %>
+  </div>
+  <div class="content">
+    <%= yield %>
+  </div>
+  <div id="footer" class="banner">
+    hecho a mano por &nbsp;<%= link_to 'calc', 'http://calclab.com', :class => 'calc' %>
+  </div>
+</div>
+<%= javascript_include_tag 'admin' %>
+</body>
+</html>
+

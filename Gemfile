@@ -23,11 +23,15 @@ gem 'has_scope'
 gem 'responders'
 
 
+group :development do
+  gem 'newrelic_rpm'
+end
+
+
 group :test, :development do
   # Pretty printed test output
   gem 'sqlite3'
   gem 'mysql2'
-  gem 'oink'
   gem 'mongrel', '1.2.0.pre2'
   gem 'ruby-debug19'
   gem 'test-unit'

@@ -1,0 +1,11 @@
+
+$fondo: #efefef;
+$azul: #40CAFC;
+$azulclaro: #D6F3FE;
+$azulblanco: #F6FCFE;
+$gris: #696969;
+$grisoscuro: #101010;
+$grisclaro: #EFEFEF;
+@mixin round {-moz-border-radius: 0.5em;-webkit-border-radius: 0.5em;}
+@mixin round-top {-moz-border-radius: 0.5em 0.5em 0 0;-webkit-border-radius: 0.5em 0.5em 0 0;}
+@mixin round-bottom {-moz-border-radius: 0 0 0.5em 0.5em;-webkit-border-radius: 0 0 0.5em 0.5em;}
