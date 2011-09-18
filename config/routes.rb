@@ -9,7 +9,9 @@ Despachodepan::Application.routes.draw do
       resource :position
     end
     resources :colors
-    resources :tags
+    resources :tags do
+      resource :position
+    end
   end
 
   namespace :backend do

@@ -17,6 +17,9 @@ module NavigationHelpers
       when /admin colors/
         admin_colors_path
 
+      when /admin tags/
+        admin_tags_path
+
       when /^edit card of "(.*)"$/
         edit_admin_card_path(Card.find_by_title($1))
 

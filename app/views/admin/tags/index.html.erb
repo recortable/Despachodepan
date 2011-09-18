@@ -1,0 +1,56 @@
+<%= title 'Colores' %>
+<br/><br/>
+
+<div class="actions">
+</div>
+
+<div class="columns">
+  <div class="col2">
+    <table>
+      <thead>
+        <tr>
+          <td>Nombre</td>
+          <td>Fichas con esa categoría</td>
+          <td>Posición</td>
+          <td>Color</td>
+          <td/></tr>
+      </thead>
+      <tbody>
+        <% @tags.each do |tag| %>
+          <tr>
+            <td><%= link_to tag.name, edit_admin_tag_path(tag), :style => "color: " %></td>
+            <td>
+              <% for card in tag.cards -%>
+                <%= link_to card.title, [:admin, card] %><br/>
+              <% end -%>
+            </td>
+            <td>
+              <%= tag.position %>
+              <div>
+                <%= link_to image_tag('move_top.png'), admin_tag_position_path(tag) %>
+                <%= link_to image_tag('move_up.png'), admin_tag_position_path(tag) %>
+                <%= link_to image_tag('move_down.png'), admin_tag_position_path(tag) %>
+                <%= link_to image_tag('move_bottom.png'), admin_tag_position_path(tag) %>
+              </div>
+            </td>
+            <td>
+              <%= color_example tag.color.value %>
+              <%= color_example tag.color.high_value %>
+            </td>
+            <td class="actions">
+              <%= (link_to 'Borrar', [:admin, tag], :method => 'delete',
+                :confirm => "¡Borrar la categoría '#{tag.name}'! ¿Estás segura?") unless tag.cards.size > 0 %>
+              <%= link_to 'Editar', edit_admin_tag_path(tag) %>
+            </td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col2">
+    <div class="nested">
+      <h3>Añadir una categoría</h3>
+      <%= render 'form' %>
+    </div>
+  </div>
+
+</div>
