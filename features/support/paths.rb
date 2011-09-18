@@ -14,6 +14,9 @@ module NavigationHelpers
       when /admin cards/
         admin_cards_path
 
+      when /^edit card of "(.*)"$/
+        edit_admin_card_path(Card.find_by_title($1))
+
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
