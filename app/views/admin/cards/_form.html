@@ -1,0 +1,114 @@
+<%= form_for [:admin, @card], :html => {:multipart => true}  do |form| %>
+<div class="columns">
+    <p class="submit">
+        <%= form.submit 'Guardar' %><span>&nbsp; O ir a sección: </span>
+        <%= link_to 'Fotografías', '#fotos' %>
+        <%= link_to 'Ficheros', '#ficheros' %>
+        <%= link_to 'Selección', '#seleccion' %>
+        <%= link_to 'Actual', '#actual' %>
+    </p>
+
+    <div class="col2">
+        <h2>Valores generales</h2>
+
+        <p><%= form.check_box :visible %> <span>¿Mostrar en el índice? </span></p>
+
+        <p>
+            <label for="card_title">Título</label>
+            <%= form.text_field :title %>
+        </p>
+
+        <p>
+            <label>URL</label>
+        <span class="info">La url lo que hay que poner en el navegador para acceder a la ficha. Sólo
+          puede contener letras, números o guiones. No puede contener tildes, eñes, u otros
+          símbolos como : / % ? etcétera. Si lo dejas en blanco se generará automáticamente
+          cuando guardes.
+        </span>
+            <%= form.text_field :url %>
+        </p>
+
+        <p>
+            <label for="card_start">Fecha de inicio</label>
+            <%= form.text_field :start %>
+        </p>
+
+        <p>
+            <label for="card_finish">Fecha de fin (vacío, significa sin concluir):</label>
+            <%= form.text_field :finish %>
+        </p>
+        <% if !@card.start.blank? %>
+        <p>
+            <label for="card_finish">Longitud (en cuadraditos):</label>
+            <span class="info">Se calcula automáticamente a partir de las fechas de inicio y fin</span>
+            <%= @card.end_column - @card.begin_column %>
+        </p>
+        <% end -%>
+        <p>
+            <label for="card_vposition">Posición vertical</label>
+            <%= form.text_field :vposition %>
+        </p>
+
+        <p>
+            <% selected = @card.color.nil? ? {} : {:selected => @card.color.id} %>
+            <%= form.label :color_id, t(:color_id) %>
+            <%= form.select :color_id, @colors.collect {|c| [ c.name, c.id ] }, selected %>
+            <% if !@card.color.nil? %>
+            <label for="card_color">Color actual: <%= @card.color.name %></label>
+
+        <div id="select_color_example" class="color_example">
+            <%= color_example @card.color.value %>
+            <%= color_example @card.color.high_value %>
+        </div>
+        <% end %>
+        </p>
+
+
+        <h2>Recursos principales</h2>
+
+        <p><label for="card_main_image">Imagen principal</label>
+        <span class="info">usa imágenes a 72dpi de resolución.
+          la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</span>
+
+            <% if !@card.main_image.nil? %>
+            <%= image_tag @card.main_image.public_filename %>
+            <span class="info">Para cambiar esta imágen, sube otra.</span>
+            <% end %>
+            <br/>
+            <%= file_field_tag :main_data %>
+        </p>
+
+        <p>
+            <label for="card_link">Enlace principal:</label>
+            <%= form.text_field :link %>
+        </p>
+    </div>
+
+    <div class="col2">
+        <h2>Textos</h2>
+
+        <p>
+            <%= form.label :text, t(:text) %>
+            <%= textile_info %>
+            <%= form.text_area :text %>
+        </p>
+
+        <p>
+            <label for="card_content">Propiedades</label>
+            <%= form.text_area :properties, :class => 'medium' %>
+        </p>
+
+        <h2>Categorías de esta ficha</h2>
+
+        <div id="tag_selector">
+            <% @tags.each do |tag| %>
+            <% clazz = @card.is_about?(tag) ? 'selected' : '' %>
+            <%= link_to tag.name, '#', {:id => "tag#{tag.id}", :class => clazz } %>
+            <% end %>
+            <%= hidden_field_tag 'card[selected_tags]', '', {:id => 'selected' } %>
+        </div>
+    </div>
+
+    <p class="submit"><%= form.submit 'Guardar' %></p>
+</div>
+<% end %>

@@ -1,6 +1,10 @@
 module Admin::ApplicationHelper
-  def title(text, el = :h1)
-    content_for(:title) {text}
-    content_tag el, text, class: :title
+
+  def action_separator
+    raw '<div class="separator">&nbsp;</div>'
+  end
+
+  def textile_info
+    raw '<span class="info">Puedes escribir formato <a href="http://elzr.com/static/textile" target="_blank">Textile</a></span>'
   end
 end
