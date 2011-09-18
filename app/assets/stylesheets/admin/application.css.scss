@@ -11,6 +11,7 @@ a {text-decoration: none; color: $gris;}
 a:hover {text-decoration: underline; color: $azul;}
 
 h1 {font-size: 200%; margin-top: 0.2em;}
+h1.title {margin-bottom: 30px;}
 h2 {
     font-size: 150%; margin: 1em 0 0.2em 0;
     color: $grisoscuro; border-bottom: 2px solid $azulclaro;}

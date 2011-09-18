@@ -9,6 +9,10 @@ class Admin::TagsController < Admin::ApplicationController
     index!
   end
 
+  def show
+    redirect_to admin_tags_path
+  end
+
   def create
     create! do |success, failure|
       success.html { redirect_to tags_path }

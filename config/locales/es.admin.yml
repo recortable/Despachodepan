@@ -1,9 +1,6 @@
 es:
   admin:
-    cards:
-      index:
-        title: 'Fichas'
-
-    colors:
-      index:
-        title: 'Colores'
+    resources:
+      cards: 'Fichas'
+      colors: 'Colores'
+      tags: 'Categorías'

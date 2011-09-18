@@ -14,13 +14,13 @@
 <body class="admin">
 <div id="menu">
   <%= link_to 'Despachodepan', admin_root_path, :class => 'lpn' %> >
-  <%= link_to_unless_current 'fichas', admin_cards_path %> |
-  <%= link_to_unless_current 'colores', admin_colors_path %> |
-  <%= link_to_unless_current 'categorías', admin_tags_path %> |
+  <%= link_to_unless_current t('admin.resources.cards').downcase, admin_cards_path %> |
+  <%= link_to_unless_current t('admin.resources.colors').downcase, admin_colors_path %> |
+  <%= link_to_unless_current t('admin.resources.tags').downcase, admin_tags_path %> |
 </div>
 <div id="page">
   <div id="header" class="banner">
-    <%= t("admin.#{controller.class}") %> <%= content_tag(:span, " - #{flash[:notice]}", :class => 'flash') unless flash[:notice].blank? %>
+    <%= t("admin.resources.#{resource_class.name.downcase}s") %> <%= content_tag(:span, " - #{flash[:notice]}", :class => 'flash') unless flash[:notice].blank? %>
   </div>
   <div class="content">
     <%= yield %>
