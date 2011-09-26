@@ -22,6 +22,4 @@ class Image < ActiveRecord::Base
 
   has_many :slides
   has_many :cards, :through => :slides
-
-
 end

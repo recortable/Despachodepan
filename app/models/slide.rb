@@ -1,3 +1,17 @@
+# Slide
+#
+# SCHEMA
+# create_table "slides", :force => true do |t|
+#   t.integer "card_id"
+#   t.integer "image_id"
+#   t.string  "text"
+#   t.integer "pos"
+#   t.string  "date"
+#   t.string  "rol"
+#   t.string  "body",     :limit => 4096
+#   t.string  "extra"
+#   t.string  "rev_date"
+# end
 class Slide < ActiveRecord::Base
   belongs_to :card
   belongs_to :image

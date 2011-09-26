@@ -11,7 +11,7 @@ module UploaderFu
   end
 
   def root_dir
-    version_name ? "public/media" : "media"
+    version_name ? "public/media" : "public/media"
   end
 
   # store dir is composed of root_dir, model_dir, partition_dir

@@ -8,6 +8,10 @@ class Admin::CardsController < Admin::ApplicationController
     index!
   end
 
+  def show
+    redirect_to edit_admin_card_path(@card)
+  end
+
   def edit
     prepare_edit
     edit!
