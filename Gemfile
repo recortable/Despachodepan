@@ -13,6 +13,8 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'carrierwave'
+#gem "paperclip", "~> 2.4"
 gem 'jquery-rails'
 
 gem 'acts_as_list'
@@ -33,7 +35,6 @@ group :test, :development do
   gem 'sqlite3'
   gem 'mysql2'
   gem 'mongrel', '1.2.0.pre2'
-  gem 'ruby-debug19'
   gem 'test-unit'
   gem 'database_cleaner'
   gem 'turn', :require => false

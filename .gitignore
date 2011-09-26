@@ -6,4 +6,7 @@ tmp/
 .idea
 config/database.yml
 public/assets/**
+public/uploads
+public/media
+media
 
