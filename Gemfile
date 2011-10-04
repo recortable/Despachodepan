@@ -24,7 +24,7 @@ gem 'inherited_resources'
 gem 'kaminari'
 gem 'has_scope'
 gem 'responders'
-gem 'redcarpet'
+gem 'RedCloth'
 
 group :development do
   gem 'newrelic_rpm'

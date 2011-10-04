@@ -12,5 +12,11 @@ module ApplicationHelper
     Redcarpet.new(text, *options).to_html.html_safe
   end
 
+  def textilize(text, limit = nil)
+    text = '' if text.blank?
+    text =  truncate(text, :length => limit) if limit.present?
+    RedCloth.new(text).to_html.html_safe
+  end
+
 
 end

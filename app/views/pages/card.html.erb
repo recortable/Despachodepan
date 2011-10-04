@@ -2,13 +2,14 @@
 <% content_for :header do -%>
   <style type="text/css">
     #slide_controls a.selected {
-      color: <%= c @card.color.value %>;
+      color: <%= "##{@card.color.value}" %>;
     }
 
     #tabs li {
-      border-bottom: 1px solid <%= c @card.color.value %>;
+      border-bottom: 1px solid <%= "##{@card.color.value}" %>;
     }
   </style>
+
   <script type="text/javascript">
     var first_image = <%= @card.photos.first.id %>;
     var last_image = <%= @card.photos.last.id %>;
@@ -54,14 +55,14 @@
         </a>
       </div>
     <%- end %>
-    <%= image_tag @card.main_image.public_filename unless @card.main_image.nil? %>
+    <%= image_tag @card.main_image.filename.url unless @card.main_image.nil? %>
   </div>
 
 
 
   <div id="main_text"  class="card_element">
     <div id="text_flow">
-      <%= beautify @card.text %>
+      <%= textilize @card.text %>
     </div>
   </div>
   <div id="scroll_down" class="scrollers" style="display: none"></div>
@@ -72,7 +73,7 @@
   <div id="slides" class="card_element">
     <% @card.photos.each do |slide| %>
       <div id="slideImage<%= slide.pos %>" class="slide" style="display: none">
-        <%= image_tag slide.image.public_filename,
+        <%= image_tag slide.image.filename.url,
           :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
         <div class="slide_text">
           <%= textilize slide.text %>
