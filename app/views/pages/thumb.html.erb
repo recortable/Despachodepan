@@ -1,6 +1,10 @@
-<div class="mini_slide" style="border-color: #<%= @slide.card.color.value %>;">
-  <div class="mini_image"><%= image_tag(@slide.image.public_filename(:thumb), :id => 'preview_image') %></div>
-  <% if !@slide.body.blank? %>
-    <div class="mini_text" style="color: #<%= @slide.card.color.value %>;"><%= truncate(textilize(@slide.body.strip), 150) %></div>
+<div class="mini_slide" style="border-color: <%= "##{@slide.card.color.value}" %>;">
+  <div class="mini_image">
+    <%= image_tag(@slide.image.filename.url(:thumb), :id => 'preview_image') %>
+  </div>
+  <% if @slide.body.present? %>
+      <div class="mini_text" style="color: <%= "##{@slide.card.color.value}" %>;">
+        <%= textilize(@slide.body.strip, 150) %>
+      </div>
   <% end -%>
 </div>
