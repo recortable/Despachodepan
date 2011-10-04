@@ -14,6 +14,7 @@ group :assets do
 end
 
 gem 'carrierwave'
+gem 'fog'
 gem 'rmagick'
 #gem "paperclip", "~> 2.4"
 gem 'jquery-rails'

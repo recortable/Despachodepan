@@ -35,7 +35,7 @@
 
 
     <% for prop in @properties %>
-      <div class="prop_name"><%= prop[0] %></div><div class="prop_value"><%= prop[1] %></div>
+      <div class="prop_name"><%= prop[0] %></div><div class="prop_value"><%= textilize prop[1] %></div>
       <div class="prop_separator">&nbsp;</div>
     <% end -%>
 
