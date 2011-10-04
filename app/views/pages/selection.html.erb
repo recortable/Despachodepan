@@ -1,0 +1,34 @@
+<% content_for :header do %>
+  <script type="text/javascript">
+    (function($) {
+      var scrollTime = 0;
+
+      $(function() {
+        if (scrollTime == 0) {
+          $("#wrapper").attr('scrollLeft', 1300);
+        } else {
+          $("#wrapper").animate({
+            scrollLeft: 1200
+          }, scrollTime, "swing", function() {});
+        }
+      });
+    })(jQuery);
+  </script>
+<% end %>
+
+<% title 'selección' %>
+
+<div id="wrapper">
+  <div id="time-panel" style="width: <%= @selection.width %>px;">
+    <div class="line">
+      <% @selection.top.each do |slide| %>
+        <%= render :partial => 'selected', :object => slide %>
+      <% end %>
+    </div>
+    <div class="line">
+      <% @selection.bottom.each do |slide| %>
+        <%= render :partial => 'selected', :object => slide %>
+      <% end %>
+    </div>
+  </div>
+</div>

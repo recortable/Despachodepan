@@ -1,5 +1,15 @@
 Despachodepan::Application.routes.draw do
 
+  root to: 'pages#actual'
+  match '/lapanaderia' => 'pages#lapanaderia'
+  match '/indice' => 'pages#indice'
+  match '/seleccion' => 'pages#selection'
+  match '/actual' => 'pages#actual'
+  match '/thumb/:id' => 'pages#thumb'
+  match '/index' => 'pages#index'
+  match '/:id' => 'pages#card'
+  match '/editar/:id' => 'admin/cards#find'
+
   namespace :admin do
     root to: 'cards#index'
     resources :cards do

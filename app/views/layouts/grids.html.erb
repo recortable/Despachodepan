@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>l a p a n a d e r í a : <%= yield :title %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="grids">
+<div id="central">
+  <div id="playground">
+    <ul id="tabs">
+      <li id="nav-actual" class="<%= 'selected' if (current_page?(actual_path)|| current_page?(root_path)) %>"><%= link_to 'actual', actual_path %></li>
+      <li id="nav-seleccion" class="<%= 'selected' if current_page?(seleccion_path) %>"><%= link_to 'selección', seleccion_path %></li>
+      <li id="nav-indice" class="<%= 'selected' if (current_page?(indice_path)) %>"><%= link_to 'proyectos', indice_path %></li>
+      <%= yield :tabs %>
+      <li id="nav-panaderia">
+        <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>
+      </li>
+    </ul>
+    <%= yield %>
+
+    <div id="info" style="width: 864px; display: none;">
+      <div style="float: right; text-align: right;">
+        <a href="mailto:info@despachodepan.com">info@despachodepan.com</a>
+        +34-954419305 calle garci-fernandez 20 Bajo 41008 sevillaspain -_-
+      </div>
+      <div>©2001/08 l a p a n a d e r i a &nbsp; s.c.</div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "application" %>
+<%= render 'layouts/ga' %>
+</body>
+</html>

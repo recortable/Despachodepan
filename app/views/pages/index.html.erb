@@ -1,0 +1,49 @@
+<% content_for :header do %>
+  <%= javascript_include_tag 'jquery.ba-bbq.min','lpn.tags', 'lpn.thumbs' %>
+
+  <script type="text/javascript">
+    var scrollTime = <%= @scroll_time %>;
+    var tagToCardIDs = {};
+  <% for tag in @tags %>
+      tagToCardIDs[<%= tag.id -%>] = [<%= tag_ids tag %>];
+  <% end %>
+    var cardIDs = [<%= @cards.map(&:id).join(',') %>];
+
+    $(function() {
+        if (scrollTime == 0) {
+            $("#wrapper").attr('scrollLeft', 1300);
+        } else {
+            $("#wrapper").animate({
+                scrollLeft: 1200
+            }, scrollTime, "swing", function() {});
+        }
+    });
+
+  </script>
+<% end %>
+
+<% title 'proyectos' %>
+
+<div id="wrapper">
+  <div id="grid">
+    <div id="content">
+      <% @cards.each do |card| %>
+        <%= pinta_card(card) if card.visible? %>
+        <%= pinta_milestones(card) if card.visible? %>
+      <% end %>
+      <div id="preview" style="display: none"></div>
+      <div id="loading" style="display: none"><div id="spinner"></div></div>
+    </div>
+  </div>
+</div>
+<div id="tags-bar">
+<ul id="tags" style="">
+  <% @tags.each do |tag| %>
+    <li>
+      <a id="tag-<%= tag.id %>" class="tag tag-link" href="#" style="color: <%= c(tag.color.value) %>;"><%= tag.name %></a>
+      <label id="ind-<%= tag.id %>" class="tag-indicator tag-link"
+             style="color: <%= c(tag.color.value) %>; border-color: <%= c(tag.color.value) %>"><%= tag.name %></label>
+    </li>
+  <% end %>
+</ul>
+</div>

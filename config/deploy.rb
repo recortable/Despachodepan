@@ -66,7 +66,7 @@ namespace :assets do
   end
 end
 
-after :deploy, "assets:precompile"
+#after :deploy, "assets:precompile"
 
 
 namespace :mysql do
