@@ -5,7 +5,7 @@
     <div id="content">
       <% @cards.each do |card| %>
           <%= pinta_card(card) if card.visible? %>
-          <%= pinta_milestones(card) if card.visible? %>
+          <%#= pinta_milestones(card) if card.visible? %>
       <% end %>
       <div id="preview" style="display: none"></div>
       <div id="loading" style="display: none">
@@ -17,23 +17,16 @@
 <div id="tags-bar">
   <ul id="tags" style="">
     <% @tags.each do |tag| %>
-        <li>
-          <a id="tag-<%= tag.id %>" class="tag tag-link" href="#" style="color: <%= "##{tag.color.value}" %>;"><%= tag.name %></a>
-          <label id="ind-<%= tag.id %>" class="tag-indicator tag-link"
-                 style="color: <%= "##{tag.color.value}" %>; border-color: <%= "##{tag.color.value}" %>">
-            <%= tag.name %>
-          </label>
-        </li>
+        <%= content_tag_for :li, tag, data: {card_ids: tag_ids(tag)} do %>
+            <a id="tag-<%= tag.id %>" class="tag tag-link" href="#" style="color: <%= "##{tag.color.value}" %>;"><%= tag.name %></a>
+            <label id="ind-<%= tag.id %>" class="tag-indicator tag-link"
+                   style="color: <%= "##{tag.color.value}" %>; border-color: <%= "##{tag.color.value}" %>">
+              <%= tag.name %>
+            </label>
+        <% end %>
     <% end %>
   </ul>
 </div>
 
-<%#= javascript_include_tag 'jquery.ba-bbq.min', 'lpn.tags', 'lpn.thumbs' %>
 
-<script type="text/javascript">
-    var tagToCardIDs = {};
-    <% for tag in @tags %>
-    tagToCardIDs[<%= tag.id -%>] = [<%= tag_ids tag %>];
-    <% end %>
-    var cardIDs = [<%= @cards.map(&:id).join(',') %>];
-</script>
+

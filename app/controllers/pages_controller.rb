@@ -35,11 +35,13 @@ class PagesController < ApplicationController
   private
   def prepare_index(time)
     @scroll_time = time
-    @cards = Card.find(:all)
+    @cards = Card.find(:all, :include => [:photos, :color])
     @tags = Tag.find(:all, :order => 'position')
     render :action => 'index', :layout => 'grids'
   end
 
+
+  # @param card [Card]
   def prepare_card(card)
     @card = card
     if !@card.link.blank?

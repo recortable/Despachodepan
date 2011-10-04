@@ -21,7 +21,7 @@ module PagesHelper
 
   # ====== TAGS
   def tag_ids(tag)
-    tag.cards.collect { |card| card.id }.join(',')
+    tag.cards.map(&:id).join(',')
   end
 
   # ========= GRID
@@ -46,7 +46,7 @@ module PagesHelper
   def pinta_caption(card)
     id = "caption-#{card.id}"
     width = 200
-    left = (card.begin_column) * BLOC_SIZE - width -3
+    left = (card.begin_column) * BLOC_SIZE - width - 3
     top = (card.vposition) * BLOC_SIZE
     style = new_style(left, top, width, nil, nil)
     style['text-align'] = 'right'
