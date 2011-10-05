@@ -1,6 +1,31 @@
 # encoding: utf-8
 require 'date.rb'
 
+# Card
+#
+#create_table "cards", :force => true do |t|
+#  t.string   "title"
+#  t.string   "text",               :limit => 4096
+#  t.string   "properties",         :limit => 1024
+#  t.integer  "main_image_id"
+#  t.integer  "vposition"
+#  t.string   "start"
+#  t.string   "finish"
+#  t.string   "color_id"
+#  t.boolean  "visible"
+#  t.integer  "main_slide_id"
+#  t.integer  "main_file_id"
+#  t.string   "link"
+#  t.datetime "created_at"
+#  t.datetime "updated_at"
+#  t.string   "url"
+#  t.integer  "slides_count",                       :default => 0
+#  t.boolean  "selected",                           :default => false
+#  t.integer  "selection_image_id"
+#  t.string   "selection_body"
+#  t.integer  "selection_position",                 :default => 0
+#end
+#
 class Card < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
 

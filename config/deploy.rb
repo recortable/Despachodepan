@@ -66,7 +66,7 @@ namespace :assets do
   end
 end
 
-#after :deploy, "assets:precompile"
+after :deploy, "assets:precompile"
 after "assets:precompile", "deploy:restart"
 
 
@@ -82,9 +82,14 @@ namespace :mysql do
     end
     `mkdir -p #{File.dirname(__FILE__)}/../backups/`
     get file, "backups/#{filename}"
+    `gpg -c #{File.dirname(__FILE__)}/../backups/#{filename}`
+    `rm #{File.dirname(__FILE__)}/../backups/#{filename}`
+    # delete file
   end
 
-  task :download, :roles => :db, :only => { :primary => true } do
+
+  desc "Download the remote production database"
+   task :download, :roles => :db, :only => { :primary => true } do
     filename = "#{application}.dump.sql"
     file = "/tmp/#{filename}"
     on_rollback { delete file }

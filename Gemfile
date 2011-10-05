@@ -20,6 +20,7 @@ gem 'carrierwave' # 0.7.5 supports image?
 gem 'jquery-rails'
 
 gem 'acts_as_list'
+gem 'decent_exposure'
 
 gem 'inherited_resources'
 gem 'kaminari'

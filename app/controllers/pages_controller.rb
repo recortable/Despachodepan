@@ -10,11 +10,11 @@ class PagesController < ApplicationController
   end
 
   def lapanaderia
-    prepare_card(Card.find(1))
+    prepare_card(Card.find!(1))
   end
 
   def card
-    prepare_card(Card.find_by_url(params[:id]))
+    prepare_card(Card.find_by_url!(params[:id]))
   end
 
   def selection

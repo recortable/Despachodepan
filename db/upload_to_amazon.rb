@@ -20,7 +20,7 @@ end
 
 if Rails.env.development?
   #CardFile.limit(5).each { |card_file| upload card_file }
-  Image.limit(5).each { |image| upload image }
+  Image.limit(10).each { |image| upload image }
 elsif Rails.env.production?
   CardFile.all.each { |card| upload(card, true) }
   Image.all.each { |image| upload(image, true) }

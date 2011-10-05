@@ -19,6 +19,10 @@ class CardFile < ActiveRecord::Base
 
   before_save :update_stored_attributes
 
+  def file?
+    stored.present? and stored != 'not_exist'
+  end
+
   protected
   def update_stored_attributes
     if stored.present? && stored_changed?

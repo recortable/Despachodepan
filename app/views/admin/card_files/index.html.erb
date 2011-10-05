@@ -1,0 +1,22 @@
+<%= title "Ficheros de #{parent.title}" %>
+
+<%= paginate card_files %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Ficha</th>
+    <th>Fichero</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% card_files.each do |card_file| %>
+      <tr>
+        <td><%= card_file.title %></td>
+        <td><%= link_to card_file.card.title, [:admin, card_file.card] %></td>
+        <td><%= card_file.stored_identifier if card_file.file? %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

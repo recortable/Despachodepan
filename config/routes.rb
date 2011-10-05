@@ -7,21 +7,20 @@ Despachodepan::Application.routes.draw do
   match '/actual' => 'pages#actual'
   match '/thumb/:id' => 'pages#thumb'
   match '/index' => 'pages#index'
-  match '/:id' => 'pages#card'
-  match '/editar/:id' => 'admin/cards#find'
 
   namespace :admin do
     root to: 'cards#index'
-    resources :cards do
-      resources :card_files
+    resources :cards, path: 'fichas' do
+      resources :card_files, path: 'ficheros'
     end
-    resources :slides do
+    resources :slides, path: 'slides' do
       resource :position
     end
-    resources :colors
+    resources :colors, path: 'colores'
     resources :tags do
-      resource :position
+      resource :position, path: 'posicion'
     end
+    resources :card_files, path: 'ficheros'
   end
 
   namespace :backend do
@@ -33,4 +32,7 @@ Despachodepan::Application.routes.draw do
     resources :tags
     resources :users
   end
+
+  match '/:id' => 'pages#card'
+  match '/editar/:id' => 'admin/cards#find'
 end
