@@ -5,6 +5,7 @@ tmp/
 .sass-cache/
 .idea
 config/database.yml
+config/despachodepan.yml
 public/assets/**
 public/uploads
 public/media

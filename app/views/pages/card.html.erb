@@ -27,7 +27,7 @@
         <div class="prop_separator">&nbsp;</div>
         <div class="card_file">
           <%= image_tag '/images/ui/file.gif' %>
-          <div><%= link_to file.title, file.filename.url, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>	</div>
+          <div><%= link_to file.title, file.stored.url, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>	</div>
         </div>
       <% end -%>
     </div>
@@ -50,7 +50,7 @@
         </a>
       </div>
     <%- end %>
-    <%= image_tag @card.main_image.filename.url unless @card.main_image.nil? %>
+    <%= image_tag @card.main_image.stored.url unless @card.main_image.nil? %>
   </div>
 
 
@@ -70,7 +70,7 @@
        data-lastId="<%= @card.photos.last.id %>">
     <% @card.photos.each do |slide| %>
       <div id="slideImage<%= slide.pos %>" class="slide" style="display: none">
-        <%= image_tag slide.image.filename.url,
+        <%= image_tag slide.image.stored.url,
           :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
         <div class="slide_text">
           <%= textilize slide.text %>

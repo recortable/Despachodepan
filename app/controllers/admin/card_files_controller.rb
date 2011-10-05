@@ -1,8 +1,22 @@
 class Admin::CardFilesController < Admin::ApplicationController
   respond_to :html
-  expose(:resource_class) { CardFile }
-  expose(:page) { params[:page].present? ? params[:page] : 1 }
-  expose(:parent) {params[:card_id].present? ? Card.find(params[:card_id]) : Site.new}
-  expose(:card_files) { parent.card_files.page(page) }
+  inherit_resources
+  has_scope :page, default: 1
+
+  before_filter :load_parent
+
+  def destroy
+    destroy!{ [:admin, @parent] }
+  end
+
+  protected
+  def begin_association_chain
+    @parent
+  end
+
+  def load_parent
+    @parent = params[:card_id].present? ? Card.find(params[:card_id]) : Site.new
+  end
+
 
 end

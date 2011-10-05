@@ -18,7 +18,7 @@
       <tr>
         <td>
           <% if slide.image %>
-            <%= link_to image_tag(slide.image.filename.url(:thumb)), [:admin, slide] %>
+            <%= link_to image_tag(slide.image.stored.url(:thumb)), [:admin, slide] %>
           <% end %>
         </td>
         <td><%= truncate slide.body %></td>

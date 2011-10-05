@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def lapanaderia
-    prepare_card(Card.find!(1))
+    prepare_card(Card.find(1))
   end
 
   def card
@@ -44,23 +44,17 @@ class PagesController < ApplicationController
   # @param card [Card]
   def prepare_card(card)
     @card = card
-    if !@card.link.blank?
-      redirect_to @card.link
-    elsif !@card.main_file.nil?
-      redirect_to @card.main_file.public_filename
-    else
-      @properties = []
-      @card.properties.each_line do |line|
-        splitted = line.split(%r{:\s})
-        splitted[0], splitted[1] = '', splitted[0] if splitted.length == 1
-        @properties << splitted
-      end
-
-      first = @card.photos.first
-      first_id = first.nil? ? '0' : first.id
-      @show_image = params[:imagen].blank? ? first_id.to_s : params[:imagen]
-      render :action => 'card', :layout => 'cards'
+    @properties = []
+    @card.properties.each_line do |line|
+      splitted = line.split(%r{:\s})
+      splitted[0], splitted[1] = '', splitted[0] if splitted.length == 1
+      @properties << splitted
     end
+
+    first = @card.photos.first
+    first_id = first.nil? ? '0' : first.id
+    @show_image = params[:imagen].blank? ? first_id.to_s : params[:imagen]
+    render :action => 'card', :layout => 'cards'
   end
 end
 

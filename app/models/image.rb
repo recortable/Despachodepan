@@ -24,6 +24,9 @@ class Image < ActiveRecord::Base
   has_many :slides
   has_many :cards, :through => :slides
 
+  def file?
+    stored.present? and stored != 'not_exist'
+  end
 
   before_save :update_stored_attributes
 

@@ -21,6 +21,7 @@ Despachodepan::Application.routes.draw do
       resource :position, path: 'posicion'
     end
     resources :card_files, path: 'ficheros'
+    resources :images, path: 'imagenes'
   end
 
   namespace :backend do

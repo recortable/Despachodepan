@@ -3,10 +3,9 @@ class Actual
     
   end
 
-  def news
-    @news ||= Slide.all(:conditions => {
-        :rol => 'news'
-      }, :order => 'rev_date ASC', :include => :image)
+  def news(page = 1)
+    @news ||= Slide.where(rol: 'news').order('rev_date DESC').includes(:image).page(page).per(5)
+    @news.reverse!
   end
 
   def width

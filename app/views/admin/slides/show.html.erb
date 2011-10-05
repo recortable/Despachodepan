@@ -20,13 +20,13 @@
     </ul>
     <div class="thumb">
       <h2>Miniatura</h2>
-      <%= image_tag @slide.image.filename.url(:thumb) %>
-      <p><%= @slide.image.filename.url(:thumb) %></p>
+      <%= image_tag @slide.image.stored.url(:thumb) %>
+      <p><%= @slide.image.stored.url(:thumb) %></p>
       <br/>
     </div>
     <div class="main">
       <h2>Imágen</h2>
-      <%= image_tag @slide.image.filename.url %>
-      <p><%= @slide.image.filename.url %></p>
+      <%= image_tag @slide.image.stored.url %>
+      <p><%= @slide.image.stored.url %></p>
     </div>
 <% end %>

@@ -1,6 +1,6 @@
-<%= title "Ficheros de #{parent.title}" %>
+<%= title "Ficheros de #{@parent.title}" %>
 
-<%= paginate card_files %>
+<%= paginate @card_files %>
 
 <table>
   <thead>
@@ -11,7 +11,7 @@
   </tr>
   </thead>
   <tbody>
-  <% card_files.each do |card_file| %>
+  <% @card_files.each do |card_file| %>
       <tr>
         <td><%= card_file.title %></td>
         <td><%= link_to card_file.card.title, [:admin, card_file.card] %></td>

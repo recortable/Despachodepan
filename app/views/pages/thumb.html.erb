@@ -1,6 +1,6 @@
 <div class="mini_slide" style="border-color: <%= "##{@slide.card.color.value}" %>;">
   <div class="mini_image">
-    <%= image_tag(@slide.image.filename.url(:thumb), :id => 'preview_image') %>
+    <%= image_tag(@slide.image.stored.url(:thumb), :id => 'preview_image') %>
   </div>
   <% if @slide.body.present? %>
       <div class="mini_text" style="color: <%= "##{@slide.card.color.value}" %>;">

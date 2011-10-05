@@ -3,7 +3,7 @@
      color: <%= "##{selected.card.color.value}" %>;
      width: <%= selected.width %>px;">
   <div class="image">
-    <%= (link_to_if selected.card.visible?, image_tag(selected.image.filename.url), selected.card.path) if selected.image %>
+    <%= (link_to_if selected.card.visible?, image_tag(selected.image.stored.url), selected.card.path) if selected.image %>
   </div>
   <div class="data">
     <div class="date"><%= year_of selected.date %></div>

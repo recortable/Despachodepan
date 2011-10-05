@@ -6,7 +6,7 @@
     <%= form.hidden_field :card_id %>
     <p>
       <% if slide.image %>
-        <%= image_tag slide.image.public_filename %>
+        <%= image_tag slide.image.stored.url %>
         <span class="info">Para cambiar esta foto, simplemente sube otra. <br/>Si quieres conservar esta, deja el campo "Foto" vacío.</span>
       <% end %>
       <%= form.label :photo_data, 'Foto' %>

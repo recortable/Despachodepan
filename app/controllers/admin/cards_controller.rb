@@ -7,6 +7,11 @@ class Admin::CardsController < Admin::ApplicationController
     @cards = Card.all(:include => [:color, :main_image, :main_slide, :tags])
     index!
   end
+  
+  def find
+    card = Card.find_by_url!(params[:id])
+    redirect_to edit_admin_card_path(card)
+  end
 
   def show
     redirect_to edit_admin_card_path(@card)
