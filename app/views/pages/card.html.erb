@@ -26,8 +26,8 @@
       <% @card.files.each do |file| %>
         <div class="prop_separator">&nbsp;</div>
         <div class="card_file">
-          <%= image_tag 'file.gif' %>
-          <div><%= link_to file.title, file.public_filename, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>	</div>
+          <%= image_tag '/images/ui/file.gif' %>
+          <div><%= link_to file.title, file.filename.url, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>	</div>
         </div>
       <% end -%>
     </div>

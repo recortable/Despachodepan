@@ -13,9 +13,9 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'carrierwave'
 gem 'fog'
 gem 'rmagick'
+gem 'carrierwave' # 0.7.5 supports image?
 #gem "paperclip", "~> 2.4"
 gem 'jquery-rails'
 

@@ -7,7 +7,9 @@ module UploaderFu
   end
 
   def model_dir
-    "#{model.class.to_s.underscore}s/"
+    name = model.class.to_s.underscore
+    name = 'file' if name == 'card_file'
+    "#{name}s/"
   end
 
   def root_dir
