@@ -22,6 +22,8 @@ class Slide < ActiveRecord::Base
   scope :selected, :conditions => {:rol => 'selection'}
   scope :news, :conditions => {:rol => 'news'}
 
+  ROLES = [:selection, :news]
+
   before_save :reverse_date
 
   # http://zilkey.com/2008/3/24/advanced-acts_as_list-scope-with-multiple-columns

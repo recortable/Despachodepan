@@ -10,4 +10,12 @@ class Site
   def card_files
     CardFile.scoped
   end
+
+  def slides
+    Slide.scoped
+  end
+
+  def selections
+    Slide.selected
+  end
 end

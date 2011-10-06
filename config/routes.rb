@@ -12,6 +12,7 @@ Despachodepan::Application.routes.draw do
     root to: 'cards#index'
     resources :cards, path: 'fichas' do
       resources :card_files, path: 'ficheros'
+      resources :slides, path: 'slides'
     end
     resources :slides, path: 'slides' do
       resource :position
@@ -22,6 +23,7 @@ Despachodepan::Application.routes.draw do
     end
     resources :card_files, path: 'ficheros'
     resources :images, path: 'imagenes'
+    resources :selections, path: 'seleccion'
   end
 
   namespace :backend do

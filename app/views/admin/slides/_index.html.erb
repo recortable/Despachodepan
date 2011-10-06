@@ -17,6 +17,7 @@
     <% slides.each do |slide| %>
       <tr>
         <td>
+          <%= slide.rol %>
           <% if slide.image %>
             <%= link_to image_tag(slide.image.stored.url(:thumb)), [:admin, slide] %>
           <% end %>

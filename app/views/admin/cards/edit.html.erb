@@ -15,7 +15,7 @@
   <a name="fotos"> </a>
   <div class="col2 claro">
     <h2>Fotografías</h2>
-    <%= render :partial => '/admin/slides/slides', :locals => {:slides => @card.photos, :rol => @photo.rol} %>
+    <%= render :partial => '/admin/slides/index', :locals => {:slides => @card.photos, :rol => @photo.rol} %>
     <%= render :partial => '/admin/slides/form', :locals => {:card => @card, :slide => @photo, :form_label => t(@photo.rol), :form_submit => 'Añadir' } %>
   </div>
   <div class="col2">
@@ -23,11 +23,11 @@
     <%= render :partial => '/admin/card_files/files' %>
     <a name="seleccion"> </a>
     <h2>Selección</h2>
-    <%= render :partial => '/admin/slides/slides', :locals => {:slides => @card.selections, :rol => @selected.rol } %>
+    <%= render :partial => '/admin/slides/index', :locals => {:slides => @card.selections, :rol => @selected.rol } %>
     <%= render :partial => '/admin/slides/form', :locals => {:slide => @selected, :form_label => t(@selected.rol), :form_submit => 'Añadir'} %>
     <a name="actual"> </a>
     <h2>Actual</h2>
-    <%= render :partial => '/admin/slides/slides', :locals => {:slides => @card.news, :rol => @news.rol} %>
+    <%= render :partial => '/admin/slides/index', :locals => {:slides => @card.news, :rol => @news.rol} %>
     <%= render :partial => '/admin/slides/form', :locals => {:slide => @news, :form_label => t(@news.rol), :form_submit => 'Añadir'} %>
   </div>
 </div>
