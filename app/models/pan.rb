@@ -31,6 +31,10 @@ class Pan < ActiveRecord::Base
     "card_id = #{card_id} AND type = #{quote_value(type)}"
   end
 
+  def show_col?(item)
+    true
+  end
+
   private
   def reverse_date
     self.rev_date = self.date.split('/').reverse.join('/')

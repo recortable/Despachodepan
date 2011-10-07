@@ -3,6 +3,10 @@
 
 class Site
 
+  def id
+    nil
+  end
+
   def title
     'l a p a n a d e r í a'
   end

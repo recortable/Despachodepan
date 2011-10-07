@@ -1,21 +1,33 @@
+<%= render "#{@parent.class.name.underscore}" %>
 
 <table>
   <thead>
   <tr>
-    <td></td>
-    <th>Posición</th>
-    <th>Fecha</th>
-    <th>Texto</th>
+    <%= content_tag(:th, '') if @columns.include?(:thumb) %>
+    <%= content_tag(:th, 'Posición') if @columns.include?(:position) %>
+    <%= content_tag(:th, 'Fecha') if @columns.include?(:date) %>
+    <%= content_tag(:th, 'Texto') if @columns.include?(:text) %>
+    <%= content_tag(:th, 'Contenido') if @columns.include?(:body) %>
+    <%= content_tag(:th, '') %>
   </tr>
   </thead>
   <tbody>
   <% collection.each do |pan| %>
-  <tr>
-    <td><%= image_tag pan.image.url(:thumb) if pan.image.present? %></td>
-    <td><%= pan.position %></td>
-    <td><%= pan.date %></td>
-    <td><%= pan.text %></td>
-  </tr>
+      <tr>
+        <% if @columns.include?(:thumb) %>
+            <td><%= image_tag pan.image.url(:thumb) if pan.image.present? %></td>
+        <% end %>
+        <% if @columns.include?(:position) %>
+            <td><%= pan.position %></td>
+        <% end %>
+        <%= content_tag(:td, pan.date) if @columns.include?(:date) %>
+        <%= content_tag(:td, pan.text) if @columns.include?(:text) %>
+        <%= content_tag(:td, truncate(pan.body, length: 200)) if @columns.include?(:body) %>
+        <td class="actions">
+          <%= link_to 'Editar', [:edit, :admin, pan] %>
+          <%= link_to 'Borrar', [:admin, pan] %>
+        </td>
+      </tr>
   <% end %>
   </tbody>
 </table>

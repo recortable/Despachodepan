@@ -27,6 +27,7 @@ Despachodepan::Application.routes.draw do
     resources :card_files, path: 'ficheros'
     resources :slide_images, path: 'imagenes'
     resources :selections, path: 'seleccion'
+    resources :posts, path: 'actual'
   end
 
   namespace :backend do

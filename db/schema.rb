@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111006170824) do
+ActiveRecord::Schema.define(:version => 20111007092723) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"

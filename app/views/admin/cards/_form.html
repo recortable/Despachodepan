@@ -1,13 +1,5 @@
 <%= form_for [:admin, @card], :html => {:multipart => true}  do |form| %>
 <div class="columns">
-    <p class="submit">
-        <%= form.submit 'Guardar' %><span>&nbsp; O ir a sección: </span>
-        <%= link_to 'Fotografías', '#fotos' %>
-        <%= link_to 'Ficheros', '#ficheros' %>
-        <%= link_to 'Selección', '#seleccion' %>
-        <%= link_to 'Actual', '#actual' %>
-    </p>
-
     <div class="col2">
         <h2>Valores generales</h2>
 
@@ -64,6 +56,28 @@
         </p>
 
 
+    </div>
+
+    <div class="col2">
+        <h2>Textos</h2>
+
+        <p>
+            <%= form.label :text, t(:text) %>
+            <%= textile_info %>
+            <%= form.text_area :text %>
+        </p>
+
+        <p>
+            <label for="card_content">Propiedades</label>
+            <%= form.text_area :properties, :class => 'medium' %>
+        </p>
+
+    </div>
+
+</div>
+
+<div class="columns">
+    <div class="col2">
         <h2>Recursos principales</h2>
 
         <p><label for="card_main_image">Imagen principal</label>
@@ -83,21 +97,7 @@
             <%= form.text_field :link %>
         </p>
     </div>
-
     <div class="col2">
-        <h2>Textos</h2>
-
-        <p>
-            <%= form.label :text, t(:text) %>
-            <%= textile_info %>
-            <%= form.text_area :text %>
-        </p>
-
-        <p>
-            <label for="card_content">Propiedades</label>
-            <%= form.text_area :properties, :class => 'medium' %>
-        </p>
-
         <h2>Categorías de esta ficha</h2>
 
         <div id="tag_selector">
@@ -107,8 +107,9 @@
             <% end %>
             <%= hidden_field_tag 'card[selected_tags]', '', {:id => 'selected' } %>
         </div>
-    </div>
 
-    <p class="submit"><%= form.submit 'Guardar' %></p>
+    </div>
 </div>
+<p class="submit"><%= form.submit 'Guardar' %></p>
+
 <% end %>

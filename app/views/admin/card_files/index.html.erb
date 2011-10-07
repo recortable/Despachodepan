@@ -1,5 +1,7 @@
 <%= title "Ficheros de #{@parent.title}" %>
 
+<%= render 'card' if @card %>
+
 <%= paginate @card_files %>
 
 <table>

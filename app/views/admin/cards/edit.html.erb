@@ -1,39 +1,7 @@
 
 
-<div class="actions">
-  <%= (link_to 'Borrar', [:admin, @card], :method => 'delete',
-    :confirm => "Estás a punto de borrar la ficha '#{@card.title}' ¿Estás segura?") unless @card.id == 1%>
-  <%= action_separator %>
-  <%= link_to 'Volver a la lista de fichas', admin_cards_path %>
-  <%= link_to 'Ver esta ficha en la web', "/#{@card.url}" %>
-</div>
-<%= title "Editar ficha '#{@card.title}'" %>
-<div class="tabs">
-  <%= link_to 'imágenes', admin_card_slide_images_path(@card) %>
-  <%= link_to 'ficheros', admin_card_card_files_path(@card) %>
-  <%= link_to 'seleccion', admin_card_selections_path(@card) %>
-  <%= link_to 'actual', admin_card_posts_path(@card) %>
-</div>
 
+<%= title "Editar ficha '#{@card.title}'" %>
+<%= render 'card' %>
 <%= render 'form' %>
 
-<div class="columns">
-  <a name="fotos"> </a>
-  <div class="col2 claro">
-    <h2>Fotografías</h2>
-    <%= render :partial => '/admin/slides/index', :locals => {:slides => @card.photos, :rol => @photo.rol} %>
-    <%= render :partial => '/admin/slides/form', :locals => {:card => @card, :slide => @photo, :form_label => t(@photo.rol), :form_submit => 'Añadir' } %>
-  </div>
-  <div class="col2">
-    <a name="ficheros"> </a>
-    <%= render :partial => '/admin/card_files/files' %>
-    <a name="seleccion"> </a>
-    <h2>Selección</h2>
-    <%= render :partial => '/admin/slides/index', :locals => {:slides => @card.selections, :rol => @selected.rol } %>
-    <%= render :partial => '/admin/slides/form', :locals => {:slide => @selected, :form_label => t(@selected.rol), :form_submit => 'Añadir'} %>
-    <a name="actual"> </a>
-    <h2>Actual</h2>
-    <%= render :partial => '/admin/slides/index', :locals => {:slides => @card.news, :rol => @news.rol} %>
-    <%= render :partial => '/admin/slides/form', :locals => {:slide => @news, :form_label => t(@news.rol), :form_submit => 'Añadir'} %>
-  </div>
-</div>

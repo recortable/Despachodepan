@@ -15,7 +15,12 @@ class Admin::CardFilesController < Admin::ApplicationController
   end
 
   def load_parent
-    @parent = params[:card_id].present? ? Card.find(params[:card_id]) : Site.new
+    load_card
+    @parent = @card ? @card : Site.new
+  end
+
+  def load_card
+    @card = Card.find(params[:card_id]) if params[:card_id].present?
   end
 
 

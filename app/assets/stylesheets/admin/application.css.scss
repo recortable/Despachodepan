@@ -103,6 +103,31 @@ table td a {color: black; }
 table td.actions {font-size: 80%;}
 table td.actions a {background-color: $azulblanco; float: right;}
 
+
+/** TABS **/
+ul.tabs {
+    width: 100%; overflow: hidden;
+    border-bottom: 1px solid $azul;
+    margin: 5px 0;
+    z-index: 50;
+
+    li {
+        display: block; float: left;
+        background-color: $azulclaro;
+        padding: 10px 15px;
+        margin-right: 5px;
+        border: 1px solid $azulclaro;
+        border-bottom: 1px solid $azul;
+        border-radius: 5px 5px 0 0;
+        margin-bottom: -1px;
+        z-index: 100;
+    }
+
+    li.active {background-color: white;
+        border-color: $azul;
+        border-bottom: 1px solid white;}
+}
+
 /** TAGS **/
 
 #tag_selector {

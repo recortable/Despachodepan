@@ -6,6 +6,7 @@ class Admin::PansController < Admin::ApplicationController
   has_scope :page, default: 1
 
   def index
+    @columns = [:thumb, :position, :date, :text, :body]
     index!
   end
 
@@ -15,7 +16,12 @@ class Admin::PansController < Admin::ApplicationController
   end
 
   def load_parent
-    @parent = params[:card_id].present? ? Card.find(params[:card_id]) : Site.new
+    load_card
+    @parent = @card ? @card : Site.new
+  end
+
+  def load_card
+    @card = Card.find(params[:card_id]) if params[:card_id].present?
   end
 
 end

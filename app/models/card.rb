@@ -30,11 +30,13 @@ class Card < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
 
   has_many :slide_images, dependent: :destroy
+  has_many :selections, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   has_many :slides, :dependent => :destroy, :order => 'pos', :include => [:image]
   has_many :photos, :dependent => :destroy, :order => 'pos', :include => [:image],
            :class_name => 'Slide', :conditions => {:rol => 'slide'}
-  has_many :selections, :dependent => :destroy, :order => 'date', :include => [:image],
+  has_many :old_selections, :dependent => :destroy, :order => 'date', :include => [:image],
            :class_name => 'Slide', :conditions => {:rol => 'selection'}
   has_many :news, :dependent => :destroy, :order => 'date', :include => [:image],
            :class_name => 'Slide', :conditions => {:rol => 'news'}
