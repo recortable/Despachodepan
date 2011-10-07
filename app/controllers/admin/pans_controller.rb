@@ -1,15 +1,12 @@
-class Admin::SlidesController < Admin::ApplicationController
+class Admin::PansController < Admin::ApplicationController
   respond_to :html
   before_filter :load_parent
+
   inherit_resources
   has_scope :page, default: 1
 
   def index
     index!
-  end
-
-  def destroy
-    destroy! { [:admin, @parent] }
   end
 
   protected
@@ -20,4 +17,6 @@ class Admin::SlidesController < Admin::ApplicationController
   def load_parent
     @parent = params[:card_id].present? ? Card.find(params[:card_id]) : Site.new
   end
+
 end
+

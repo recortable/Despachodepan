@@ -29,6 +29,8 @@ require 'date.rb'
 class Card < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
 
+  has_many :slide_images, dependent: :destroy
+
   has_many :slides, :dependent => :destroy, :order => 'pos', :include => [:image]
   has_many :photos, :dependent => :destroy, :order => 'pos', :include => [:image],
            :class_name => 'Slide', :conditions => {:rol => 'slide'}

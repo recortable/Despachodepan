@@ -1,0 +1,21 @@
+
+<table>
+  <thead>
+  <tr>
+    <td></td>
+    <th>Posición</th>
+    <th>Fecha</th>
+    <th>Texto</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% collection.each do |pan| %>
+  <tr>
+    <td><%= image_tag pan.image.url(:thumb) if pan.image.present? %></td>
+    <td><%= pan.position %></td>
+    <td><%= pan.date %></td>
+    <td><%= pan.text %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,3 @@
+class Selection < Pan
+end
+

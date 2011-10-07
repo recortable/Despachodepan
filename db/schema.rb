@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005091312) do
+ActiveRecord::Schema.define(:version => 20111006170824) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"
@@ -69,6 +69,24 @@ ActiveRecord::Schema.define(:version => 20111005091312) do
     t.integer "width"
     t.integer "height"
     t.string  "stored",       :limit => 300
+  end
+
+  create_table "pans", :force => true do |t|
+    t.string   "type",         :limit => 32
+    t.integer  "card_id"
+    t.string   "text",         :limit => 300
+    t.integer  "position"
+    t.string   "date",         :limit => 100
+    t.text     "body"
+    t.string   "extra",        :limit => 32
+    t.string   "rev_date",     :limit => 16
+    t.string   "content_type", :limit => 64
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "image",        :limit => 300
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "slides", :force => true do |t|

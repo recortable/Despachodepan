@@ -1,4 +1,3 @@
-<%= title "Editar ficha '#{@card.title}'" %>
 
 
 <div class="actions">
@@ -7,6 +6,13 @@
   <%= action_separator %>
   <%= link_to 'Volver a la lista de fichas', admin_cards_path %>
   <%= link_to 'Ver esta ficha en la web', "/#{@card.url}" %>
+</div>
+<%= title "Editar ficha '#{@card.title}'" %>
+<div class="tabs">
+  <%= link_to 'imágenes', admin_card_slide_images_path(@card) %>
+  <%= link_to 'ficheros', admin_card_card_files_path(@card) %>
+  <%= link_to 'seleccion', admin_card_selections_path(@card) %>
+  <%= link_to 'actual', admin_card_posts_path(@card) %>
 </div>
 
 <%= render 'form' %>
