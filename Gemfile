@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'sass-rails', "  ~> 3.1.4"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
@@ -24,13 +24,15 @@ gem 'has_scope'
 gem 'responders'
 gem 'RedCloth'
 
+gem 'newrelic_rpm', group: [:production, :development]
+
 group :production do
   gem 'mysql2'
 end
 
 group :development do
   gem 'mysql2'
-  gem 'newrelic_rpm'
+  gem 'capistrano'
 end
 
 group :test, :development do
@@ -41,7 +43,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'sqlite3'
+  gem 'sqlite3', require: 'sqlite3'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'turn', :require => false
