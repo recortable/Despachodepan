@@ -1,0 +1,35 @@
+#social {
+  position: absolute; top: 525px; right: 96px;
+  height: 40px; width: 420px;
+  z-index: 2002; overflow: hidden;
+
+  // change left to move facebook button
+  div.fb-like {position: absolute; left: 60px; top: 0;
+     width: 78px;}
+
+  div.buttons {
+    width: 100%; overflow: hidden;
+    margin-left: 210px;
+
+    a, span {display: block; float: left;
+      width: 20px; height: 20px; margin-right: 3px;
+      background: image-url('social.png') no-repeat;
+      overflow: hidden; text-indent: -1000px;
+    }
+
+    span {width: 80px; background-position: -93px -3px;}
+   
+    a.facebook {background-position: 0 0;} 
+    a.twitter {background-position: -21px 0;}
+    a.linkedin {background-position: -42px 0;}
+    a.flickr {background-position: -63px 0;}
+    a.facebook:hover {background-position: 0 -21px;} 
+    a.twitter:hover {background-position: -21px -21px;}
+    a.linkedin:hover {background-position: -42px -21px;}
+    a.flickr:hover {background-position: -63px -21px;}
+  }
+}
+
+body#cards #social {
+  top: 505px; right: 0;
+}

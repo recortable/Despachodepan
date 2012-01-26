@@ -15,7 +15,6 @@ body#grids {
 
     #playground {
         position: absolute; margin-left: -500px; margin-top: -260px;
-        overflow: hidden;
         width: 1000px;
         height: 520px;
     }
@@ -36,8 +35,8 @@ body#grids {
     }
 
     #grid {
-        background: transparent url('/images/grid2011.gif') no-repeat;
-        width: 2114px; height: 469px;
+        background: image-url('grid2012.png') no-repeat;
+        width: 2306px; height: 469px;
     }
 
     #tags-bar {

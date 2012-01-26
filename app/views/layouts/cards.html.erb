@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="<%= yield :description %>">
-  <meta name="author" content="La panadería s.l.c">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>l a p a n a d e r í a : <%= yield :title %></title>
-  <%= stylesheet_link_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body id="cards">
-<div id="central">
-  <div id="playground">
-    <ul id="tabs">
-      <li id="nav-actual"><%= link_to 'actual', actual_path %></li>
-      <li id="nav-seleccion"><%= link_to 'selección', seleccion_path %></li>
-      <li id="nav-indice"><%= link_to 'proyectos', indice_path %></li>
-      <%= yield :tabs %>
-      <li id="nav-panaderia" class="<%= 'selected' if @card.id == 1 %>">
-        <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>
-      </li>
-    </ul>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="<%= yield :description %>">
+    <meta name="author" content="La panadería s.l.c">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>l a p a n a d e r í a : <%= yield :title %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="cards">
+    <div id="central">
+      <div id="playground">
+        <a href="/lapanaderia" id="logo">La Panadería</a>
+        <%= render 'layouts/social' %>
+        <a href="/lapanaderia" id="logo">La Panadería</a>
+        <%= render 'layouts/social' %>
+        <ul id="tabs">
+          <li id="nav-actual"><%= link_to 'actual', actual_path %></li>
+          <li id="nav-seleccion"><%= link_to 'selección', seleccion_path %></li>
+          <li id="nav-indice"><%= link_to 'proyectos', indice_path %></li>
+          <%= yield :tabs %>
+          <li id="nav-panaderia" class="<%= 'selected' if @card.id == 1 %>">
+          <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>
+          </li>
+        </ul>
 
-    <%= yield %>
-  </div>
-</div>
-<%= javascript_include_tag "application" %>
-<%= render 'layouts/ga' %>
-</body>
+        <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag "application" %>
+    <%= render 'layouts/ga' %>
+  </body>
 </html>
 

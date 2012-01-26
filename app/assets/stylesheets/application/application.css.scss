@@ -8,3 +8,16 @@ html {
 }
 
 a {text-decoration: none; color: $azul;}
+
+#logo {
+  position: absolute;
+  top: -55px; height: 43px;
+  width: 182px; left: 0;
+  z-index: 2001;
+  background: image-url('logo.gif') no-repeat;
+  overflow: hidden; text-indent: -1000px;
+}
+a#logo:hover {
+  background-position: 0 -43px;
+}
+
