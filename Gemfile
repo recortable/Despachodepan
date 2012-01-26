@@ -26,6 +26,7 @@ gem 'newrelic_rpm', group: [:production, :development]
 
 group :production do
   gem 'mysql2'
+  gem 'unicorn'
 end
 
 group :development do
