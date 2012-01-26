@@ -1,15 +1,5 @@
 # Cardfile
 #
-#create_table "card_files", :force => true do |t|
-#  t.integer "parent_id"
-#  t.string  "content_type"
-#  t.string  "filename"
-#  t.integer "size"
-#  t.integer "card_id"
-#  t.string  "title"
-#  t.string  "stored",       :limit => 300
-#end
-#
 class CardFile < ActiveRecord::Base
   mount_uploader :filename, ImageUploader
   mount_uploader :stored, AmazonUploader
