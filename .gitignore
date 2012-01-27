@@ -6,6 +6,7 @@ tmp/
 .idea
 config/database.yml
 config/despachodepan.yml
+config/newrelic.yml
 public/assets/**
 public/uploads
 public/media

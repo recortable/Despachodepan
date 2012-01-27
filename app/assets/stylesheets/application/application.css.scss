@@ -21,3 +21,26 @@ a#logo:hover {
   background-position: 0 -43px;
 }
 
+/** TABS **/
+#tabs {
+  position: absolute;
+  top: 0; height: 30px;
+  left: 0; width: 963px;
+  z-index: 2000;
+}
+#tabs  li {
+  float: left; height: 15px; padding-top: 2px;
+  text-align: center; margin-right: 11px;
+  border: 1px solid $azul; color: $azul;
+  z-index: 10;
+}
+
+
+#tabs li a {color: $azul;}
+#tabs li.selected {border-bottom: 1px solid white; height: 15px; }
+#nav-actual {width: 59px;}
+#nav-seleccion {width: 71px;}
+#nav-indice {width: 71px;}
+#tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
+
+

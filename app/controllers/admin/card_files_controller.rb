@@ -1,27 +1,12 @@
 class Admin::CardFilesController < Admin::ApplicationController
   respond_to :html
-  inherit_resources
-  has_scope :page, default: 1
 
-  before_filter :load_parent
+  expose_resource :card_file
+  expose(:card) { Card.find params[:card_id] }
+  expose(:card_files) { card.card_files }
 
-  def destroy
-    destroy!{ [:admin, @parent] }
+  def index
+    index!
   end
-
-  protected
-  def begin_association_chain
-    @parent
-  end
-
-  def load_parent
-    load_card
-    @parent = @card ? @card : Site.new
-  end
-
-  def load_card
-    @card = Card.find(params[:card_id]) if params[:card_id].present?
-  end
-
 
 end

@@ -15,6 +15,7 @@ class Admin::PansController < Admin::ApplicationController
     @parent
   end
 
+
   def load_parent
     load_card
     @parent = @card ? @card : Site.new

@@ -24,14 +24,16 @@ gem 'RedCloth'
 
 gem 'newrelic_rpm', group: [:production, :development]
 
+gem 'sqlite3', require: 'sqlite3', group: [:production, :development]
+gem 'mysql2', group: [:production, :development]
+
 group :production do
-  gem 'mysql2'
   gem 'unicorn'
 end
 
 group :development do
-  gem 'mysql2'
   gem 'capistrano'
+#  gem 'thin'
 end
 
 group :test, :development do
@@ -42,8 +44,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'sqlite3', require: 'sqlite3'
-  gem 'factory_girl_rails'
+ gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'turn', :require => false
 #  gem "cucumber-rails", ">= 1.0.2"

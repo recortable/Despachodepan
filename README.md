@@ -1,4 +1,8 @@
 # Despachodepan
 
-This is the http://despachodepan.com web application made with Rails 3.2
+This is the http://despachodepan.com web application.
+
+The code has a AGLP3 License and the media content a CC-share-alike
+license.
+
 

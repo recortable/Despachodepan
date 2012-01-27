@@ -45,6 +45,6 @@ module Despachodepan
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.precompile += ['admin.css', 'admin.js', 'backend.css', 'backend.js']
-    config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+    config.action_controller.page_cache_directory = "#{Rails.root}/public/cache/"
   end
 end

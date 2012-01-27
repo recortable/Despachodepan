@@ -3,6 +3,7 @@
 <div class="actions">
   <%= link_to 'crear nueva ficha', new_admin_card_path %>
 </div>
+<%= paginate cards %>
 
 <table style="width: 100%;">
   <thead>
@@ -17,7 +18,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @cards.each do |card| %>
+  <% cards.each do |card| %>
       <tr class="<%= cycle("even", "odd") -%>">
 
         <td class="title">
@@ -29,8 +30,8 @@
           <%= link_to "/#{card.url}", "/#{card.url}", :class => 'url' %>
         </td>
 
-        <td><%= image_tag card.main_image.stored.url(:thumb) unless card.main_image.nil? %></td>
-        <td><%= image_tag card.main_slide.image.stored.url(:thumb) unless card.main_slide.nil? %>
+        <td><%= image_tag card.main_image.stored_url(:thumb) unless card.main_image.nil? %></td>
+        <td><%= image_tag card.main_slide.image.stored_url(:thumb) unless card.main_slide.nil? %>
           <br/>
           total: <%= card.slides.size %> fotos
         </td>

@@ -29,7 +29,7 @@ require 'date.rb'
 class Card < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
 
-  has_many :slide_images, dependent: :destroy
+  has_many :slide_images, order: 'position ASC', dependent: :destroy
   has_many :selections, dependent: :destroy
   has_many :posts, dependent: :destroy
 

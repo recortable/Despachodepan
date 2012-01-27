@@ -9,6 +9,7 @@
     <title>l a p a n a d e r í a : <%= yield :title %></title>
     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
+    <%= yield :header %>
   </head>
   <body id="cards">
     <div id="central">
@@ -18,12 +19,12 @@
         <a href="/lapanaderia" id="logo">La Panadería</a>
         <%= render 'layouts/social' %>
         <ul id="tabs">
-          <li id="nav-actual"><%= link_to 'actual', actual_path %></li>
+          <li id="nav-actual"><%= link_to 'noticias', actual_path %></li>
           <li id="nav-seleccion"><%= link_to 'selección', seleccion_path %></li>
           <li id="nav-indice"><%= link_to 'proyectos', indice_path %></li>
           <%= yield :tabs %>
           <li id="nav-panaderia" class="<%= 'selected' if @card.id == 1 %>">
-          <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>
+          <%= link_to 'quiénes somos', lapanaderia_path %>
           </li>
         </ul>
 

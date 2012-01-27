@@ -31,7 +31,7 @@ body#cards {
 
   a {
     text-decoration: none;
-    color: black;
+//    color: black;
   }
 
 
@@ -64,33 +64,12 @@ body#cards {
     z-index: 200;
   }
 
-  #tabs {
-    position: absolute;
-    top: 0; height: 30px;
-    left: 0; width: 963px;
-    z-index: 2000;
-  }
-  #tabs  li {
-    float: left; height: 15px; padding-top: 2px;
-    text-align: center; margin-right: 11px;
-    border: 1px solid $azul; color: $azul;
-    z-index: 10;
-  }
-
-
-  #tabs li a {color: $azul;}
-  #tabs li.selected {border-bottom: 1px solid white; height: 15px; }
-  #nav-actual {width: 47px;}
-  #nav-seleccion {width: 71px;}
-  #nav-indice {width: 71px;}
-  #tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
-
 
 
   #title {
     position: absolute;
     top: 0;
-    left: 228px;
+    left: 240px;
     height: 15px;
     /*	width: 200px;	*/
     border-bottom: 1px solid white;
@@ -195,7 +174,7 @@ body#cards {
     top: 254px;
     width: 10px;
     height: 6px;
-    background: url("../images/arrowup.gif") no-repeat;
+    background: asset-data-url("arrowup.gif") no-repeat;
   }
 
   #scroll_down {
@@ -205,7 +184,7 @@ body#cards {
     top: 262px;
     width: 10px;
     height: 6px;
-    background: url("../images/arrowdown.gif") no-repeat;
+    background: asset-data-url("arrowdown.gif") no-repeat;
   }
 
   #slide_controls {
