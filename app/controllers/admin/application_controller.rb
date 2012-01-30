@@ -2,6 +2,9 @@ class Admin::ApplicationController < ApplicationController
   layout 'admin'
   before_filter :require_user
 
+  expose(:card) { Card.find params[:card_id] if params[:card_id].present? }
+  expose(:parent) { card.nil? ? Site.new : card }
+
   protected
   def require_user
     unless Rails.env.test?

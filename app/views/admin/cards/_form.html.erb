@@ -1,4 +1,4 @@
-<%= form_for [:admin, @card], :html => {:multipart => true}  do |form| %>
+<%= form_for [:admin, card], :html => {:multipart => true}  do |form| %>
 <div class="columns">
     <div class="col2">
         <h2>Valores generales</h2>
@@ -29,11 +29,11 @@
             <label for="card_finish">Fecha de fin (vacío, significa sin concluir):</label>
             <%= form.text_field :finish %>
         </p>
-        <% if !@card.start.blank? %>
+        <% if !card.start.blank? %>
         <p>
             <label for="card_finish">Longitud (en cuadraditos):</label>
             <span class="info">Se calcula automáticamente a partir de las fechas de inicio y fin</span>
-            <%= @card.end_column - @card.begin_column %>
+            <%= card.end_column - card.begin_column %>
         </p>
         <% end -%>
         <p>
@@ -42,15 +42,15 @@
         </p>
 
         <p>
-            <% selected = @card.color.nil? ? {} : {:selected => @card.color.id} %>
+            <% selected = card.color.nil? ? {} : {:selected => card.color.id} %>
             <%= form.label :color_id, t(:color_id) %>
-            <%= form.select :color_id, @colors.collect {|c| [ c.name, c.id ] }, selected %>
-            <% if !@card.color.nil? %>
-            <label for="card_color">Color actual: <%= @card.color.name %></label>
+            <%= form.select :color_id, colors.collect {|c| [ c.name, c.id ] }, selected %>
+            <% if !card.color.nil? %>
+            <label for="card_color">Color actual: <%= card.color.name %></label>
 
         <div id="select_color_example" class="color_example">
-            <%= color_example @card.color.value %>
-            <%= color_example @card.color.high_value %>
+            <%= color_example card.color.value %>
+            <%= color_example card.color.high_value %>
         </div>
         <% end %>
         </p>
@@ -84,8 +84,8 @@
         <span class="info">usa imágenes a 72dpi de resolución.
           la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</span>
 
-            <% if !@card.main_image.nil? %>
-            <%= image_tag @card.main_image.filename %>
+            <% if !card.main_image.nil? %>
+            <%= image_tag card.main_image.filename %>
             <span class="info">Para cambiar esta imágen, sube otra.</span>
             <% end %>
             <br/>
@@ -101,8 +101,8 @@
         <h2>Categorías de esta ficha</h2>
 
         <div id="tag_selector">
-            <% @tags.each do |tag| %>
-            <% clazz = @card.is_about?(tag) ? 'selected' : '' %>
+            <% tags.each do |tag| %>
+            <% clazz = card.is_about?(tag) ? 'selected' : '' %>
             <%= link_to tag.name, '#', {:id => "tag#{tag.id}", :class => clazz } %>
             <% end %>
             <%= hidden_field_tag 'card[selected_tags]', '', {:id => 'selected' } %>
