@@ -2,11 +2,11 @@
 # The selected images from all the projects
 class SelectionCard
   def top
-    @top ||= SlideImage.where(extra: 'top').order('rev_date ASC')
+    @top ||= Selection.where(extra: 'top').order('rev_date ASC')
   end
   
   def bottom
-    @bottom ||= SlideImage.where(extra: 'bottom').order('rev_date ASC')
+    @bottom ||= Selection.where(extra: 'bottom').order('rev_date ASC')
   end
 
  def width

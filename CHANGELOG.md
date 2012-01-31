@@ -1,5 +1,8 @@
 # CHANGELOG
 
+31/1/2012
+  * SelectionCard ahora muestra las selecciones
+
 
 ### Resúmen de lo sucedido
 

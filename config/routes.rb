@@ -4,7 +4,7 @@ Despachodepan::Application.routes.draw do
   match '/lapanaderia' => 'pages#lapanaderia'
   match '/indice' => 'pages#indice'
   match '/seleccion' => 'pages#selection'
-  match '/actual' => 'pages#actual'
+  match '/noticias' => 'pages#actual', as: :posts
   match '/thumb/:id' => 'pages#thumb'
   match '/index' => 'pages#index'
 
@@ -14,7 +14,6 @@ Despachodepan::Application.routes.draw do
       resources :card_files, path: 'ficheros'
       resources :selections, path: 'seleccion'
       resources :slide_images, path: 'imagenes'
-      resources :posts, path: 'actual'
       resources :slides, path: 'slides'
     end
     resources :slides, path: 'slides' do
@@ -27,7 +26,7 @@ Despachodepan::Application.routes.draw do
     resources :card_files, path: 'ficheros'
     resources :slide_images, path: 'imagenes'
     resources :selections, path: 'seleccion'
-    resources :posts, path: 'actual'
+    resources :posts, path: 'noticias'
   end
 
   namespace :backend do

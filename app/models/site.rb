@@ -22,4 +22,8 @@ class Site
   def selections
     Slide.selected
   end
+
+  def posts
+    Post.scoped
+  end
 end
