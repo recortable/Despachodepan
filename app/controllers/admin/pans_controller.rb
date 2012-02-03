@@ -6,8 +6,12 @@ class Admin::PansController < Admin::ApplicationController
   has_scope :page, default: 1
 
   def index
-    @columns = [:thumb, :position, :date, :text, :body]
+    @columns = [:thumb, :position, :date, :text, :extra, :body]
     index!
+  end
+
+  def edit
+    edit!
   end
 
   protected

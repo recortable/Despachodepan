@@ -2,7 +2,7 @@
 
 31/1/2012
   * SelectionCard ahora muestra las selecciones
-
+  * Actual pasa a llamarse noticias (en las urls)
 
 ### Resúmen de lo sucedido
 

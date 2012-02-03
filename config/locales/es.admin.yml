@@ -4,3 +4,7 @@ es:
       cards: 'Fichas'
       colors: 'Colores'
       tags: 'Categorías'
+
+  resource:
+    updated: 'Guardado. ¡Yeepa!'
+    created: 'Se ha añadido ¡Bien!'

@@ -9,7 +9,23 @@ class Admin::CardsController < Admin::ApplicationController
     index!
   end
 
+  def show
+    redirect_to action: :edit
+  end
+
   def edit
     edit!
-  end 
+  end
+
+  def new
+    new!
+  end
+
+  def create
+    create! [:edit, :admin, card]
+  end
+
+  def update
+    update! [:edit, :admin, card]
+  end
 end

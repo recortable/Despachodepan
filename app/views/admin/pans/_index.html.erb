@@ -6,6 +6,7 @@
     <%= content_tag(:th, '') if @columns.include?(:thumb) %>
     <%= content_tag(:th, 'Posición') if @columns.include?(:position) %>
     <%= content_tag(:th, 'Fecha') if @columns.include?(:date) %>
+    <%= content_tag(:th, 'Extra') if @columns.include?(:extra) %>
     <%= content_tag(:th, 'Texto') if @columns.include?(:text) %>
     <%= content_tag(:th, 'Contenido') if @columns.include?(:body) %>
     <%= content_tag(:th, '') %>
@@ -21,6 +22,7 @@
             <td><%= pan.position %></td>
         <% end %>
         <%= content_tag(:td, pan.date) if @columns.include?(:date) %>
+        <%= content_tag(:td, pan.extra) if @columns.include?(:extra) %>
         <%= content_tag(:td, pan.text) if @columns.include?(:text) %>
         <%= content_tag(:td, truncate(pan.body, length: 200)) if @columns.include?(:body) %>
         <td class="actions">

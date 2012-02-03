@@ -1,41 +1,42 @@
 <% title @card.title %>
 <% content_for :header do -%>
-  <style type="text/css">
-    #slide_controls a.selected {
-      color: <%= "##{@card.color.value}" %>;
-    }
+    <style type="text/css">
+        #slide_controls a.selected {
+            color: <%= "##{@card.color.value}" %>;
+        }
 
-    #tabs li {
-      border-bottom: 1px solid <%= "##{@card.color.value}" %>;
-    }
-  </style>
+        #tabs li {
+            border-bottom: 1px solid <%= "##{@card.color.value}" %>;
+        }
+    </style>
 <% end -%>
 
 <% if @card.id != 1 %>
-  <div id="title" style=" <%= border_tab @card.color.value %>">
-    <span style="color: <%= "##{@card.color.value}" %>;"><%= @card.title %></span>
-  </div>
+    <div id="title" style=" <%= border_tab @card.color.value %>">
+      <span style="color: <%= "##{@card.color.value}" %>;"><%= @card.title %></span>
+    </div>
 <% end %>
 
-<div id="card" style="	border: 1px solid <%= "##{@card.color.value}" %>;">
+<div id="card" style="    border: 1px solid <%= "##{@card.color.value}" %>;">
   <div id="properties" class="card_element"
        style="background-color: <%= "##{@card.color.high_value}" %>; color: <%= "##{@card.color.value}" %>;">
 
     <div id="files" style="top: <%= 237 - @card.files.length * 23 %>px;">
       <% @card.files.each do |file| %>
-        <div class="prop_separator">&nbsp;</div>
-        <div class="card_file">
-          <%= image_tag '/images/ui/file.gif' %>
-          <div><%= link_to file.title, file.stored_url, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>	</div>
-        </div>
+          <div class="prop_separator">&nbsp;</div>
+          <div class="card_file">
+            <%= image_tag '/images/ui/file.gif' %>
+            <div><%= link_to file.title, file.stored_url, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>    </div>
+          </div>
       <% end -%>
     </div>
 
 
 
     <% for prop in @properties %>
-      <div class="prop_name"><%= prop[0] %></div><div class="prop_value"><%= textilize prop[1] %></div>
-      <div class="prop_separator">&nbsp;</div>
+        <div class="prop_name"><%= prop[0] %></div>
+        <div class="prop_value"><%= textilize prop[1] %></div>
+        <div class="prop_separator">&nbsp;</div>
     <% end -%>
 
   </div>
@@ -43,18 +44,17 @@
 
   <div id="main_image" class="card_element">
     <% if @card.id == 1 %>
-      <div id="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank">
-          <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/80x15.png" />
-        </a>
-      </div>
+        <div id="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank">
+            <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/80x15.png"/>
+          </a>
+        </div>
     <%- end %>
     <%= image_tag @card.main_image.stored_url unless @card.main_image.nil? %>
   </div>
 
 
-
-  <div id="main_text"  class="card_element">
+  <div id="main_text" class="card_element">
     <div id="text_flow">
       <%= textilize @card.text %>
     </div>
@@ -64,27 +64,29 @@
 
 
   <!-- slides -->
-  <div id="slides" class="card_element"
-       data-firstId="<%= @card.photos.first.id %>"
-       data-lastId="<%= @card.photos.last.id %>">
-    <% @card.photos.each do |slide| %>
-      <div id="slideImage<%= slide.pos %>" class="slide" style="display: none">
-        <%= image_tag slide.image.stored_url,
-          :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
-        <div class="slide_text">
-          <%= textilize slide.text %>
-        </div>
-        <div id="slideNumber<%= slide.pos %>" style="display: none;"><%= slide.pos %></div>
+  <% if @card.photos.present? %>
+      <div id="slides" class="card_element"
+           data-firstId="<%= @card.photos.first.id %>"
+           data-lastId="<%= @card.photos.last.id %>">
+        <% @card.photos.each do |slide| %>
+            <div id="slideImage<%= slide.pos %>" class="slide" style="display: none">
+              <%= image_tag slide.image.stored_url,
+                            :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
+              <div class="slide_text">
+                <%= textilize slide.text %>
+              </div>
+              <div id="slideNumber<%= slide.pos %>" style="display: none;"><%= slide.pos %></div>
+            </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+  <% end %>
 
   <div id="slide_controls" class="card_element">
-    <%= link_to image_tag('/images/ui/arrowleft1.gif', :alt => 'primera'), '#/imagen=1', {:id => 'slideFirst'},  :class => 'arrow' %>
-    <%= link_to image_tag('/images/ui/arrowleft2.gif', :alt => 'anterior'), '#', {:id => 'slidePrev'}, :class => 'arrow'%>
+    <%= link_to image_tag('/images/ui/arrowleft1.gif', :alt => 'primera'), '#/imagen=1', {:id => 'slideFirst'}, :class => 'arrow' %>
+    <%= link_to image_tag('/images/ui/arrowleft2.gif', :alt => 'anterior'), '#', {:id => 'slidePrev'}, :class => 'arrow' %>
     &nbsp;<span id="number_control"></span> / <span><%= @card.photos.length %></span>&nbsp;
-    <%= link_to image_tag('/images/ui/arrowright1.gif', :alt =>'siguiente'), '#', {:id => 'slideNext'}, :class => 'arrow' %>
-    <%= link_to image_tag('/images/ui/arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.photos.size}", {:id => 'slideLast'}, :class => 'arrow'  %>
+    <%= link_to image_tag('/images/ui/arrowright1.gif', :alt => 'siguiente'), '#', {:id => 'slideNext'}, :class => 'arrow' %>
+    <%= link_to image_tag('/images/ui/arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.photos.size}", {:id => 'slideLast'}, :class => 'arrow' %>
   </div>
 
 </div>

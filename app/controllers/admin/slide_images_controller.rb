@@ -3,7 +3,7 @@
 #
 class Admin::SlideImagesController < Admin::PansController
   def index
-    @columns = [:thumb, :position, :body]
+    @columns = [:thumb, :position, :extra, :body]
     index!
   end
 end

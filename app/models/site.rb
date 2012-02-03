@@ -1,6 +1,5 @@
 # encoding: utf-8
-
-
+# Representa el site
 class Site
 
   def id
@@ -15,12 +14,12 @@ class Site
     CardFile.scoped
   end
 
-  def slides
-    Slide.scoped
+  def slide_images
+    SlideImage.scoped
   end
 
   def selections
-    Slide.selected
+    Selection.scoped 
   end
 
   def posts

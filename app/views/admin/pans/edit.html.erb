@@ -1,0 +1,9 @@
+
+<%= title "Editar" %>
+<%= form_for [:admin, resource] do |form| %>
+  <%= form.hidden_field :card_id %>
+  <%= form.text_area :text %>
+  <%= form.submit 'Guardar' %>
+<% end %>
+<%= debug resource %>
+
