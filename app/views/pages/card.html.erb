@@ -35,7 +35,7 @@
 
     <% for prop in @properties %>
         <div class="prop_name"><%= prop[0] %></div>
-        <div class="prop_value"><%= textilize prop[1] %></div>
+        <div class="prop_value"><%= markdown prop[1] %></div>
         <div class="prop_separator">&nbsp;</div>
     <% end -%>
 
@@ -56,7 +56,7 @@
 
   <div id="main_text" class="card_element">
     <div id="text_flow">
-      <%= textilize @card.text %>
+      <%= markdown @card.text %>
     </div>
   </div>
   <div id="scroll_down" class="scrollers" style="display: none"></div>
@@ -73,7 +73,7 @@
               <%= image_tag slide.image.stored_url,
                             :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
               <div class="slide_text">
-                <%= textilize slide.text %>
+                <%= markdown slide.text %>
               </div>
               <div id="slideNumber<%= slide.pos %>" style="display: none;"><%= slide.pos %></div>
             </div>

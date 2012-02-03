@@ -18,12 +18,7 @@ gem 'jquery-rails'
 gem 'acts_as_list'
 gem 'decent_exposure'
 gem 'simple_form'
-
-gem 'inherited_resources'
-gem 'kaminari'
-gem 'has_scope'
-gem 'responders'
-gem 'RedCloth'
+gem 'redcarpet'
 
 gem 'newrelic_rpm', group: [:production, :development]
 

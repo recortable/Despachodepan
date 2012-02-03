@@ -13,7 +13,7 @@
   </tr>
   </thead>
   <tbody>
-  <% collection.each do |pan| %>
+  <% resources.each do |pan| %>
       <tr>
         <% if @columns.include?(:thumb) %>
             <td><%= image_tag pan.image_url(:thumb) if pan.image.present? %></td>
@@ -24,8 +24,9 @@
         <%= content_tag(:td, pan.date) if @columns.include?(:date) %>
         <%= content_tag(:td, pan.extra) if @columns.include?(:extra) %>
         <%= content_tag(:td, pan.text) if @columns.include?(:text) %>
-        <%= content_tag(:td, truncate(pan.body, length: 200)) if @columns.include?(:body) %>
+        <%= content_tag(:td, render_body(pan)) if @columns.include?(:body) %>
         <td class="actions">
+          <%= link_to 'Ver', [:admin, pan] %>
           <%= link_to 'Editar', [:edit, :admin, pan] %>
           <%= link_to 'Borrar', [:admin, pan] %>
         </td>

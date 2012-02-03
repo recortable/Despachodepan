@@ -1,4 +1,8 @@
 
-<%= title "Actualidad de '#{@parent.title}'" %>
+<%= title "Noticias" %>
+
+<div class="actions">
+  <%= link_to 'añadir noticia', new_admin_post_path %>
+</div>
 
 <%= render 'index' %>

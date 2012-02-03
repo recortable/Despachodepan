@@ -1,0 +1,12 @@
+<%= title 'Noticia' %>
+
+<div class="actions">
+  <%=  link_to 'volver', admin_posts_path %>
+  <%=  link_to 'editar', edit_admin_post_path(post) %>
+</div>
+
+<%= image_tag(post.image_url) if post.image.present? %>
+
+<div class="body">
+  <%= render_body post %>
+</div>

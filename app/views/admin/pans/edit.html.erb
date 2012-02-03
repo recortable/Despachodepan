@@ -1,18 +1,3 @@
 <%= title "Editar" %>
-<%= simple_form_for [:admin, resource] do |form| %>
-    <%= form.input :card_id, as: :hidden %>
-    <% if resource.image_url %>
-        <div class="current_image">
-          <label>Imágen actual:</label>
-          <%= image_tag resource.image_url %>
-          <div class="hint">Puedes sustituir ésta imágen por otra en con el campo de abajo</div>
-        </div>
-    <% end %>
-    <%= form.input :image, as: :file, label: 'Imágen' %>
-    <%= form.input :body, as: :text, label: 'Texto' %>
-    <%= form.input :date, label: 'Fecha' %>
-    <%= form.input :position %>
-    <%= form.submit 'Guardar' %>
-<% end %>
-<%= debug resource %>
 
+<%= render 'form' %>

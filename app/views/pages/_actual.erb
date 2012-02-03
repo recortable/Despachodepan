@@ -1,10 +1,11 @@
 <div class="news"
-  style="color: <%= "##{actual.card.color.value}" %>;
-  width: <%= actual.width %>px;">
+     style="color: <%= "##{actual.card.color.value}" %>;
+             width: <%= actual.width %>px;">
   <div class="text" style="background-color: <%= "##{actual.card.color.high_value}" %>;">
     <span class="date"><%= actual.date %></span>
     <span class="title"><%= link_to_if actual.card.visible?, actual.card.title, actual.card.path, :style => "color: ###{actual.card.color.value};" %></span>
-    <div class="body"><%= textilize actual.body %></div>
+
+    <div class="body"><%= render_body actual %></div>
   </div>
- <%= (link_to_if actual.card.visible?, image_tag(actual.image_url), actual.card.path) if actual.image %>
+  <%= (link_to_if actual.card.visible?, image_tag(actual.image_url), actual.card.path) if actual.image.present? %>
 </div>

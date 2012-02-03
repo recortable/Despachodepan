@@ -9,7 +9,8 @@ html {
 }
 a {text-decoration: none; color: $gris;}
 a:hover {text-decoration: underline; color: $azul;}
-
+em {font-weight: bold;}
+strong {font-style: italic;}
 h1 {font-size: 200%; margin-top: 0.2em;}
 h1.title {margin-bottom: 30px;}
 h2 {
@@ -99,7 +100,7 @@ table td.title a {display: block;}
 table td.title a.edit {font-size: 100%; }
 table td.title a.url {color: $azulclaro;}
 table td.title a.url:hover {color: $azul;}
-table td a {color: black; }
+table td a {color: $azul; }
 table td.actions {font-size: 80%;}
 table td.actions a {background-color: $azulblanco; float: right;}
 

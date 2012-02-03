@@ -2,16 +2,29 @@ class Admin::PansController < Admin::ApplicationController
   respond_to :html
   before_filter :load_parent
 
-  inherit_resources
-  has_scope :page, default: 1
-
   def index
     @columns = [:thumb, :position, :date, :text, :extra, :body]
     index!
   end
 
+  def show
+    show!
+  end
+
   def edit
     edit!
+  end
+
+  def new
+    new!
+  end
+
+  def create
+    create! [:admin, resource]
+  end
+
+  def update
+    update! [:admin, resource]
   end
 
   protected
