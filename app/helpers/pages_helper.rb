@@ -59,8 +59,13 @@ module PagesHelper
 
   # @param card [Card]
   def pinta_main(card)
-    id = "main-#{card.main_slide.id}-#{card.id}"
-    extra = card.main_slide.nil? ? "" : "preview"
+    if card.main_slide.present?
+      id = "main-#{card.main_slide.id}-#{card.id}"
+      extra = ''
+    else
+      extra = "preview"
+      id = "main--#{card.id}"
+    end
     extra = extra + " blank" if card.link.present? || !card.main_file.nil?
     top = card.vposition * BLOC_SIZE
     style = new_style(card.begin_column * BLOC_SIZE, top, BLOC_SIZE, BLOC_SIZE, card.color.value)

@@ -68,6 +68,11 @@ class Card < ActiveRecord::Base
   BLOCS_PER_YEAR = 16
   DAYS_PER_BLOC = 365 / 16
 
+
+  def displayable?
+    visible? and start.present? and vposition.present?
+  end
+
   def reorder_photos
     photos.each_with_index { |photo, index| photo.update_attribute(:pos, index + 1) }
   end
