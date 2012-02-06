@@ -50,6 +50,9 @@ div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
 .actions a:hover {
     background-color: $azul; color: white; text-decoration: none;
 }
+
+a.delete {color: #c00;}
+
 .calc {letter-spacing: 0.5em; color: $gris;}
 .calc:hover {color: black; text-decoration: none;}
 

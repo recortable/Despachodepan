@@ -1,4 +1,8 @@
 
-<%= title "Fotos y vídeos de '#{@parent.title}'" %>
+<%= title "Fotos y vídeos de '#{card.title}'" %>
 
+<%=  render card %>
+<div class="actions">
+  <%= link_to 'Subir foto', new_admin_card_slide_image_path(card) %>
+</div>
 <%= render 'index' %>

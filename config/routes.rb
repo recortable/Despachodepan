@@ -23,8 +23,6 @@ Despachodepan::Application.routes.draw do
     resources :tags do
       resource :position, path: 'posicion'
     end
-    resources :card_files, path: 'ficheros'
-    resources :slide_images, path: 'imagenes'
     resources :selections, path: 'seleccion'
     resources :posts, path: 'noticias'
   end
