@@ -4,7 +4,8 @@ class Admin::CardsController < Admin::ApplicationController
   expose_resource :card, order: 'updated_at DESC'
   expose(:colors) { Color.all }
   expose(:tags) { Tag.all }
- 
+
+
   def index
     index!
   end
@@ -22,10 +23,16 @@ class Admin::CardsController < Admin::ApplicationController
   end
 
   def create
-    create! [:edit, :admin, card]
+    flash[:notice] = 'Ficha guardada.' if card.save
+    respond_with card, location: edit_admin_card_path(card)
   end
 
   def update
-    update! [:edit, :admin, card]
+    flash[:notice] = 'Ficha guardada.' if card.update_attributes(params[:card])
+    respond_with card, location: edit_admin_card_path(card)
+  end
+
+  def destroy
+    destroy! admin_cards_path
   end
 end

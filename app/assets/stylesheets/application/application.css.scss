@@ -43,4 +43,7 @@ a#logo:hover {
 #nav-indice {width: 71px;}
 #tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
 
-
+p {
+  em {font-weight: bold;}
+  strong {font-style: italic;}
+}

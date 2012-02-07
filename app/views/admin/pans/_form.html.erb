@@ -1,17 +1,19 @@
 <%= simple_form_for [:admin, resource] do |form| %>
-    <%= form.input :card_id, as: :hidden %>
+    <%= form.input :date, label: 'Fecha' %>
     <% if resource.file.present? %>
         <div class="current_image">
           <label>Imágen actual:</label>
-          <%= image_tag resource.file.url %>
+          <%= image_tag resource.file.url, width: resource.width, height: resource.height %>
           <div class="hint">Puedes sustituir ésta imágen por otra en con el campo de abajo</div>
         </div>
     <% end %>
     <%= form.input :file, as: :file, label: 'Imágen' %>
     <%= form.input :body, as: :text, label: 'Texto' %>
-    <%= form.input :date, label: 'Fecha' %>
-    <%= form.input :position %>
+    <% if resource.type == 'Selection' %>
+        <%= form.input :extra, collection: {Arriba: 'top', Abajo: 'bottom'}, include_blank: false, label: 'Posición' %>
+    <% else %>
+        <%= form.input :position %>
+    <% end %>
     <%= form.submit 'Guardar' %>
 <% end %>
 
-<%=  simple_debug resource.errors %>

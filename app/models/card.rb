@@ -2,6 +2,9 @@
 require 'date.rb'
 
 class Card < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   default_scope :order => 'updated_at DESC'
 
   has_many :slide_images, order: 'position ASC', dependent: :destroy
@@ -15,10 +18,10 @@ class Card < ActiveRecord::Base
   belongs_to :color
   has_and_belongs_to_many :tags, :include => [:color]
 
-  has_many :old_slides, :dependent => :destroy, :order => 'pos', :include => [:image]
-  has_many :old_photos, :dependent => :destroy, :order => 'pos', :include => [:image],
+  has_many :old_slides, :order => 'pos', :include => [:image]
+  has_many :old_photos,  :order => 'pos', :include => [:image],
            :class_name => 'Slide', :conditions => {:rol => 'slide'}
-  has_many :old_news, :dependent => :destroy, :order => 'date', :include => [:image],
+  has_many :old_news, :order => 'date', :include => [:image],
            :class_name => 'Slide', :conditions => {:rol => 'news'}
 
   belongs_to :old_selection_image, :class_name => "Image",

@@ -53,7 +53,7 @@ module PagesHelper
     style['color'] = "##{card.color.value}"
     clazz = "card element card#{card.id} caption"
     content_tag :a, card.title, {:class => clazz, :id => id,
-                                 :href => "/#{card.url}",
+                                 :href => "/#{card.slug}",
                                  :style => style.pinta}
   end
 
@@ -72,7 +72,7 @@ module PagesHelper
     style['font-size'] = '1px'
     clazz = "card element card#{card.id} #{extra}"
     content_tag :a, card.title, {:class => clazz, :id => id,
-                                 :href => "/#{card.url}",
+                                 :href => "/#{card.slug}",
                                  :style => style.pinta}
   end
 
@@ -85,7 +85,7 @@ module PagesHelper
     style['font-size'] = '1px'
     clazz = "card element milestone preview card#{card.id}"
     memo << content_tag(:a, ' ', {:class => clazz, :id => id,
-                                  :href => "/#{card.url}#/imagen=#{slide.position}",
+                                  :href => "/#{card.slug}#/imagen=#{slide.position}",
                                   :style => style.pinta})
   end
 

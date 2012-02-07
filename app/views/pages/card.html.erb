@@ -79,14 +79,13 @@
             </div>
         <% end %>
       </div>
+
+      <div id="slide_controls" class="card_element">
+        <%= link_to image_tag('/images/ui/arrowleft1.gif', :alt => 'primera'), '#/imagen=1', {:id => 'slideFirst'}, :class => 'arrow' %>
+        <%= link_to image_tag('/images/ui/arrowleft2.gif', :alt => 'anterior'), '#', {:id => 'slidePrev'}, :class => 'arrow' %>
+        &nbsp;<span id="number_control"></span> / <span><%= @card.slide_images.length %></span>&nbsp;
+        <%= link_to image_tag('/images/ui/arrowright1.gif', :alt => 'siguiente'), '#', {:id => 'slideNext'}, :class => 'arrow' %>
+        <%= link_to image_tag('/images/ui/arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.slide_images.size}", {:id => 'slideLast'}, :class => 'arrow' %>
+      </div>
   <% end %>
-
-  <div id="slide_controls" class="card_element">
-    <%= link_to image_tag('/images/ui/arrowleft1.gif', :alt => 'primera'), '#/imagen=1', {:id => 'slideFirst'}, :class => 'arrow' %>
-    <%= link_to image_tag('/images/ui/arrowleft2.gif', :alt => 'anterior'), '#', {:id => 'slidePrev'}, :class => 'arrow' %>
-    &nbsp;<span id="number_control"></span> / <span><%= @card.slide_images.length %></span>&nbsp;
-    <%= link_to image_tag('/images/ui/arrowright1.gif', :alt => 'siguiente'), '#', {:id => 'slideNext'}, :class => 'arrow' %>
-    <%= link_to image_tag('/images/ui/arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.slide_images.size}", {:id => 'slideLast'}, :class => 'arrow' %>
-  </div>
-
 </div>

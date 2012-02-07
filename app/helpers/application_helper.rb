@@ -22,12 +22,6 @@ module ApplicationHelper
                                            space_after_headers: true)
   end
 
-  def textilize(text, limit = nil)
-    text = '' if text.blank?
-    text = truncate(text, :length => limit) if limit.present?
-    RedCloth.new(text).to_html.html_safe
-  end
-
   def simple_debug(object)
     if Rails.env.development?
       content_tag(:div, debug(object)) if object.present?

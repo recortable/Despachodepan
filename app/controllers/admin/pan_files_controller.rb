@@ -8,4 +8,8 @@ class Admin::PanFilesController < Admin::ApplicationController
     index!
   end
 
+  def edit
+    edit!
+  end
+
 end

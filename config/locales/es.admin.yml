@@ -4,6 +4,9 @@ es:
       cards: 'Fichas'
       colors: 'Colores'
       tags: 'Categorías'
+      posts: 'Noticias'
+      selections: 'Selección'
+      panfiles: 'Ficheros'
 
   resource:
     updated: 'Guardado. ¡Yeepa!'

@@ -2,22 +2,31 @@
 
 <%= render card if card %>
 
+<div class="actions">
+  <%= link_to 'Añadir un fichero', new_admin_card_pan_file_path(card) %>
+</div>
 <%# paginate card_files %>
 
 <table>
   <thead>
   <tr>
     <th>Nombre</th>
-    <th>Ficha</th>
-    <th>Fichero</th>
+    <th>Tipo</th>
+    <th>URL</th>
+    <th>&nbsp;</th>
   </tr>
   </thead>
   <tbody>
   <% pan_files.each do |file| %>
       <tr>
-        <td><%= file.title %></td>
-        <td><%= link_to file.card.title, [:admin, file.card] %></td>
-        <td><%= file.stored_identifier if file.file? %></td>
+        <td><%= file.text %></td>
+        <td><%= file.content_type %></td>
+        <td><%= link_to file.file.url, file.file.url if file.file? %></td>
+        <td class="actions">
+          <%= link_to 'Borrar', admin_card_pan_file_path(file.card, file), class: 'delete',
+          method: :delete, confirm: '¿Estás segura? No se puede deshacer' %>
+          <%= link_to 'Editar', edit_admin_card_pan_file_path(file.card, file) %>
+        </td>
       </tr>
   <% end %>
   </tbody>

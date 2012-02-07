@@ -19,6 +19,7 @@ gem 'acts_as_list'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'redcarpet'
+gem "friendly_id", "~> 4.0.0"
 
 gem 'newrelic_rpm', group: [:production, :development]
 

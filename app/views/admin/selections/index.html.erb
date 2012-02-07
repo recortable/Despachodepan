@@ -1,4 +1,7 @@
 
-<%= title "Selección de '#{@parent.title}'" %>
+<%= title "Selección" %>
 
+<div class="actions">
+  <%=  link_to 'Añadir a la selección', new_admin_selection_path %>
+</div>
 <%= render 'index' %>

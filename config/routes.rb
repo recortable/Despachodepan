@@ -40,5 +40,5 @@ Despachodepan::Application.routes.draw do
   end
 
   match '/:id' => 'pages#card'
-  match '/editar/:id' => 'admin/cards#find'
+  match '/editar/:id' => 'admin/cards#show'
 end

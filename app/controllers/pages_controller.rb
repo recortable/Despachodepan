@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def card
-    prepare_card(Card.find_by_url!(params[:id]))
+    prepare_card Card.find(params[:id])
   end
 
   def selection
@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   end
 
   def thumb
-    @slide = Slide.find(params[:id])
+    @slide = SlideImage.find(params[:id])
     render :action => 'thumb', :layout => false
   end
 

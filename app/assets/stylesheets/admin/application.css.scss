@@ -84,17 +84,23 @@ form label {
     display: block; margin: 1em 0 0.2em 0; font-weight: bold;
 }
 form p span {}
-form p input[type=text] {
+form input[type=text] {
     width: 20em; padding: 2px;
     border: 1px solid $grisclaro;}
 textarea {width: 95%; padding: 2px; margin: 2px 5% 0 2px;}
 textarea.medium {height: 10em;}
+
+.simple_form input[type=submit] {margin-top: 10px;}
+
 /** TABLE **/
 table {width: 100%; @include round-top; margin-bottom: 1em;
 }
 table thead {
     padding: 0.2em 0; 
-    background-color: $azulclaro;}
+    background-color: white;
+}
+table th {font-weight: bold; padding: 0.2em 0;}
+
 table thead tr {@include round-top;}
 table tr {border-bottom: 1px solid $azulclaro;}
 table td {padding: 0.4em 0em 0.3em 0.2em;}

@@ -3,6 +3,7 @@ class Admin::PostsController < Admin::PansController
   respond_to :html
 
   expose_resource :post
+  expose(:posts) { Post.order('rev_date DESC')}
 
   def index
     @columns = [:thumb, :body, :date]
@@ -19,11 +20,15 @@ class Admin::PostsController < Admin::PansController
 
   def create
     post.card_id = 1
-    create! [:admin, :posts]
+    create! admin_posts_path
   end
 
   def update
-    update! [:admin, :posts]
+    update! admin_posts_path
+  end
+
+  def destroy
+    destroy! admin_posts_path
   end
 end
 
