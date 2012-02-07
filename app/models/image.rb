@@ -13,7 +13,7 @@
 #
 class Image < ActiveRecord::Base
   mount_uploader :filename, ImageUploader
-  mount_uploader :stored, AmazonUploader
+  #mount_uploader :stored, AmazonUploader
   #has_attachment :content_type => :image,
   #               :storage => :file_system,
   #               :path_prefix => 'public/media/images',

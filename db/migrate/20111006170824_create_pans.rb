@@ -1,11 +1,12 @@
 class CreatePans < ActiveRecord::Migration
   def change
-    Image.all.each do |image|
-      if image.stored.blank? or image.slides.count == 0
-        puts "Borrando imagen #{image.id}"
-        image.destroy
-      end
-    end
+    # No hace falta borrar ninguna imágen de momento
+    #Image.all.each do |image|
+    #  if image.stored.blank? or image.slides.count == 0
+    #    puts "Borrando imagen #{image.id}"
+    #    image.destroy
+    #  end
+    #end
 
     create_table :pans do |t|
       t.string :type, limit: 32
@@ -20,7 +21,8 @@ class CreatePans < ActiveRecord::Migration
       t.integer :size
       t.integer :width
       t.integer :height
-      t.string :image, :limit => 300
+      t.string :file, :limit => 300
+      t.integer :original_id
       t.timestamps
     end
 

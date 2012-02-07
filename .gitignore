@@ -11,4 +11,4 @@ public/assets/**
 public/uploads
 public/media
 media
-
+.DS_Store

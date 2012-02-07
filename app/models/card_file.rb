@@ -2,7 +2,7 @@
 #
 class CardFile < ActiveRecord::Base
   mount_uploader :filename, ImageUploader
-  mount_uploader :stored, AmazonUploader
+  #mount_uploader :stored, AmazonUploader
   belongs_to :card
 
   validates :title, presence: true

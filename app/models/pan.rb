@@ -1,6 +1,6 @@
 # Pan
 # The base class for card components
-# This includes: SlideImage, Post, Selection
+# This includes: SlideImage, Post, Selection, MainImage, PanFile
 #
 #t.string   "type",         :limit => 32
 #t.integer  "card_id"
@@ -21,7 +21,7 @@
 class Pan < ActiveRecord::Base
   belongs_to :card
 
-  mount_uploader :image, AmazonUploader
+  mount_uploader :file, AmazonUploader
 
   validates :card_id, presence: true
 
@@ -39,6 +39,6 @@ class Pan < ActiveRecord::Base
 
   private
   def reverse_date
-    self.rev_date = self.date.split('/').reverse.join('/')
+    self.rev_date = self.date.split('/').reverse.join('/') if self.date.present?
   end
 end
