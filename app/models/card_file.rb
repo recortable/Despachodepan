@@ -1,5 +1,5 @@
 # Cardfile
-#
+# @deprecated
 class CardFile < ActiveRecord::Base
   mount_uploader :filename, ImageUploader
   #mount_uploader :stored, AmazonUploader

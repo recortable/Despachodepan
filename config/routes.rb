@@ -1,25 +1,27 @@
 Despachodepan::Application.routes.draw do
 
-  root to: 'pages#actual'
+  root to: 'pages#blog'
   match '/lapanaderia' => 'pages#lapanaderia'
   match '/indice' => 'pages#indice'
   match '/seleccion' => 'pages#selection'
-  match '/noticias' => 'pages#actual', as: :posts
+  match '/noticias' => 'pages#blog', as: :posts
   match '/thumb/:id' => 'pages#thumb'
   match '/index' => 'pages#index'
 
   namespace :admin do
     root to: 'cards#index'
     resources :cards, path: 'fichas' do
-      resources :card_files, path: 'ficheros'
+      resources :pan_files, path: 'ficheros'
       resources :selections, path: 'seleccion'
       resources :slide_images, path: 'imagenes'
       resources :slides, path: 'slides'
     end
+    resources :slide_images, path: 'imagenes'
     resources :slides, path: 'slides' do
       resource :position
     end
     resources :colors, path: 'colores'
+
     resources :tags do
       resource :position, path: 'posicion'
     end

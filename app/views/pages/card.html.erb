@@ -21,12 +21,12 @@
   <div id="properties" class="card_element"
        style="background-color: <%= "##{@card.color.high_value}" %>; color: <%= "##{@card.color.value}" %>;">
 
-    <div id="files" style="top: <%= 237 - @card.files.length * 23 %>px;">
-      <% @card.files.each do |file| %>
+    <div id="files" style="top: <%= 237 - @card.pan_files.length * 23 %>px;">
+      <% @card.pan_files.each do |file| %>
           <div class="prop_separator">&nbsp;</div>
           <div class="card_file">
             <%= image_tag '/images/ui/file.gif' %>
-            <div><%= link_to file.title, file.stored_url, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>    </div>
+            <div><%= link_to file.text, file.file.url, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>    </div>
           </div>
       <% end -%>
     </div>
@@ -50,7 +50,7 @@
           </a>
         </div>
     <%- end %>
-    <%= image_tag @card.main_image.stored_url unless @card.main_image.nil? %>
+    <%= image_tag @card.main_image.file.url unless @card.main_image.nil? %>
   </div>
 
 
@@ -64,18 +64,18 @@
 
 
   <!-- slides -->
-  <% if @card.photos.present? %>
+  <% if @card.slide_images.size > 0 %>
       <div id="slides" class="card_element"
-           data-firstId="<%= @card.photos.first.id %>"
-           data-lastId="<%= @card.photos.last.id %>">
-        <% @card.photos.each do |slide| %>
-            <div id="slideImage<%= slide.pos %>" class="slide" style="display: none">
-              <%= image_tag slide.image.stored_url,
-                            :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
+           data-firstId="<%= @card.slide_images.first.id %>"
+           data-lastId="<%= @card.slide_images.last.id %>">
+        <% @card.slide_images.each do |slide| %>
+            <div id="slideImage<%= slide.position %>" class="slide" style="display: none">
+              <%= image_tag slide.file.url,
+                            :alt => slide.body.strip, :size => "#{slide.width}x#{slide.height}" %>
               <div class="slide_text">
                 <%= markdown slide.text %>
               </div>
-              <div id="slideNumber<%= slide.pos %>" style="display: none;"><%= slide.pos %></div>
+              <div id="slideNumber<%= slide.position %>" style="display: none;"><%= slide.position %></div>
             </div>
         <% end %>
       </div>
@@ -84,9 +84,9 @@
   <div id="slide_controls" class="card_element">
     <%= link_to image_tag('/images/ui/arrowleft1.gif', :alt => 'primera'), '#/imagen=1', {:id => 'slideFirst'}, :class => 'arrow' %>
     <%= link_to image_tag('/images/ui/arrowleft2.gif', :alt => 'anterior'), '#', {:id => 'slidePrev'}, :class => 'arrow' %>
-    &nbsp;<span id="number_control"></span> / <span><%= @card.photos.length %></span>&nbsp;
+    &nbsp;<span id="number_control"></span> / <span><%= @card.slide_images.length %></span>&nbsp;
     <%= link_to image_tag('/images/ui/arrowright1.gif', :alt => 'siguiente'), '#', {:id => 'slideNext'}, :class => 'arrow' %>
-    <%= link_to image_tag('/images/ui/arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.photos.size}", {:id => 'slideLast'}, :class => 'arrow' %>
+    <%= link_to image_tag('/images/ui/arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.slide_images.size}", {:id => 'slideLast'}, :class => 'arrow' %>
   </div>
 
 </div>

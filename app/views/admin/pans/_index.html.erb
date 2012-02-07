@@ -15,7 +15,7 @@
   <% resources.each do |pan| %>
       <tr>
         <% if @columns.include?(:thumb) %>
-            <td><%= image_tag pan.image_url(:thumb) if pan.image.present? %></td>
+            <td><%= image_tag pan.file.url(:thumb) if pan.file.present? %></td>
         <% end %>
         <% if @columns.include?(:position) %>
             <td><%= pan.position %></td>

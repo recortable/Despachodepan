@@ -1,0 +1,10 @@
+
+<% title('actual') %>
+
+<div id="wrapper">
+  <div id="time-panel" style="width: <%= @blog.width %>px;">
+    <div class="line">
+      <%= render partial: 'post', collection: @blog.posts %>
+    </div>
+  </div>
+</div>

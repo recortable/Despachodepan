@@ -10,7 +10,7 @@
 #    t.integer "width"
 #    t.integer "height"
 #  end
-#
+# @deprecated
 class Image < ActiveRecord::Base
   mount_uploader :filename, ImageUploader
   #mount_uploader :stored, AmazonUploader

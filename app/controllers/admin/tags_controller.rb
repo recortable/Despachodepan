@@ -1,11 +1,13 @@
 class Admin::TagsController < Admin::ApplicationController
-  inherit_resources
   respond_to :html
-  before_filter :load_colors
+
+  expose_resource :tag, as: :category
+  expose(:categories) { Tag.includes(:cards, :color)}
+  expose(:category)
+  expose(:colors) { Color.all }
+
 
   def index
-    @tag = Tag.new
-    @tags = Tag.all(:include => [:cards, :color])
     index!
   end
 
@@ -14,19 +16,11 @@ class Admin::TagsController < Admin::ApplicationController
   end
 
   def create
-    create! do |success, failure|
-      success.html { redirect_to tags_path }
-    end
+    create! admin_tags_path
   end
 
   def update
-    update! do |success, failure|
-      success.html { redirect_to tags_path }
-    end
+    update! admin_tags_path
   end
 
-  private
-  def load_colors
-    @colors = Color.all
-  end
 end

@@ -13,11 +13,11 @@
   </tr>
   </thead>
   <tbody>
-  <% card_files.each do |card_file| %>
+  <% pan_files.each do |file| %>
       <tr>
-        <td><%= card_file.title %></td>
-        <td><%= link_to card_file.card.title, [:admin, card_file.card] %></td>
-        <td><%= card_file.stored_identifier if card_file.file? %></td>
+        <td><%= file.title %></td>
+        <td><%= link_to file.card.title, [:admin, file.card] %></td>
+        <td><%= file.stored_identifier if file.file? %></td>
       </tr>
   <% end %>
   </tbody>

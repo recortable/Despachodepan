@@ -29,10 +29,10 @@
           <%= link_to "/#{card.url}", "/#{card.url}", :class => 'url' %>
         </td>
 
-        <td><%= image_tag card.main_image.stored_url(:thumb) unless card.main_image.nil? %></td>
-        <td><%= image_tag card.main_slide.image.stored_url(:thumb) unless card.main_slide.nil? %>
+        <td><%= image_tag card.main_image.file.url(:thumb) unless card.main_image.nil? %></td>
+        <td><%#= image_tag card.main_slide.image.stored_url(:thumb) unless card.main_slide.nil? %>
           <br/>
-          total: <%= card.slides.size %> fotos
+          <%= card.slide_images.count %> fotos y <%= card.pan_files.count %> ficheros
         </td>
 
         <td>

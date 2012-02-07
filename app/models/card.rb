@@ -1,58 +1,39 @@
 # encoding: utf-8
 require 'date.rb'
 
-# Card
-#
-#create_table "cards", :force => true do |t|
-#  t.string   "title"
-#  t.string   "text",               :limit => 4096
-#  t.string   "properties",         :limit => 1024
-#  t.integer  "main_image_id"
-#  t.integer  "vposition"
-#  t.string   "start"
-#  t.string   "finish"
-#  t.string   "color_id"
-#  t.boolean  "visible"
-#  t.integer  "main_slide_id"
-#  t.integer  "main_file_id"
-#  t.string   "link"
-#  t.datetime "created_at"
-#  t.datetime "updated_at"
-#  t.string   "url"
-#  t.integer  "slides_count",                       :default => 0
-#  t.boolean  "selected",                           :default => false
-#  t.integer  "selection_image_id"
-#  t.string   "selection_body"
-#  t.integer  "selection_position",                 :default => 0
-#end
-#
 class Card < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
 
   has_many :slide_images, order: 'position ASC', dependent: :destroy
   has_many :selections, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :pan_files, :class_name => 'PanFile', :dependent => :destroy
 
-  has_many :slides, :dependent => :destroy, :order => 'pos', :include => [:image]
-  has_many :photos, :dependent => :destroy, :order => 'pos', :include => [:image],
-           :class_name => 'Slide', :conditions => {:rol => 'slide'}
-  has_many :old_selections, :dependent => :destroy, :order => 'date', :include => [:image],
-           :class_name => 'Slide', :conditions => {:rol => 'selection'}
-  has_many :news, :dependent => :destroy, :order => 'date', :include => [:image],
-           :class_name => 'Slide', :conditions => {:rol => 'news'}
+  has_one :main_image
+  has_one :main_slide, class_name: 'SlideImage', conditions: {extra: 'main'}
 
-  has_many :files, :class_name => 'CardFile', :dependent => :destroy
-  has_many :card_files, :class_name => 'CardFile', :dependent => :destroy
-  belongs_to :main_image, :class_name => "Image",
-             :foreign_key => :main_image_id, :dependent => :destroy
-  belongs_to :selection_image, :class_name => "Image",
-             :foreign_key => :selection_image_id, :dependent => :destroy
   belongs_to :color
   has_and_belongs_to_many :tags, :include => [:color]
-  belongs_to :old_main_slide, :foreign_key => :main_slide_id,
-             :class_name => 'Slide', :include => [:image]
-  has_one :main_slide, :class_name => 'Slide', :conditions => {:rol => 'slide', :extra => 'main'}, :include => [:image]
-  belongs_to :main_file, :foreign_key => :main_file_id,
+
+  has_many :old_slides, :dependent => :destroy, :order => 'pos', :include => [:image]
+  has_many :old_photos, :dependent => :destroy, :order => 'pos', :include => [:image],
+           :class_name => 'Slide', :conditions => {:rol => 'slide'}
+  has_many :old_news, :dependent => :destroy, :order => 'date', :include => [:image],
+           :class_name => 'Slide', :conditions => {:rol => 'news'}
+
+  belongs_to :old_selection_image, :class_name => "Image",
+             :foreign_key => :selection_image_id, :dependent => :destroy
+
+  # has_many :old_files, :class_name => 'CardFile', :dependent => :destroy
+  # has_many :old_card_files, :class_name => 'CardFile', :dependent => :destroy
+  #has_many :old_selections, :dependent => :destroy, :order => 'date', :include => [:image],
+  #         :class_name => 'Slide', :conditions => {:rol => 'selection'}
+  belongs_to :old_main_image, :class_name => "Image",
+             :foreign_key => :main_image_id, :dependent => :destroy
+  # belongs_to :old_main_slide, :foreign_key => :main_slide_id,
+  #           :class_name => 'Slide', :include => [:image]
+  # has_one :old_main_slide, :class_name => 'Slide', :conditions => {:rol => 'slide', :extra => 'main'}, :include => [:image]
+  belongs_to :old_main_file, :foreign_key => :main_file_id,
              :class_name => 'CardFile'
   #has_one :selection
 

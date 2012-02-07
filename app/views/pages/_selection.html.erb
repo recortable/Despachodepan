@@ -1,0 +1,12 @@
+<div class="selected"
+     style="background-color: <%= "##{selection.card.color.high_value}" %>;
+     color: <%= "##{selection.card.color.value}" %>;
+     width: <%= selection.width %>px;">
+  <div class="image">
+    <%= (link_to_if selection.card.visible?, image_tag(selection.file.url), selection.card.path) if selection.file.present? %>
+  </div>
+  <div class="data">
+    <div class="date"><%= year_of selection.date %></div>
+    <div class="body"><%= render_body selection %></div>
+  </div>
+</div>

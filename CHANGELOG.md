@@ -1,5 +1,10 @@
 # CHANGELOG
 
+Slide -> SlideImage, Post o Selection en función del rol
+CardFile -> PanFile
+Image -> MainImage
+
+
 31/1/2012
   * SelectionCard ahora muestra las selecciones
   * Actual pasa a llamarse noticias (en las urls)

@@ -3,7 +3,7 @@
 #
 class Admin::SlideImagesController < Admin::PansController
   expose_resource :slide_image
-  expose(:slide_images) { card.slide_images }
+  expose(:slide_images) { parent.slide_images }
 
   def index
     @columns = [:thumb, :position, :extra, :body]

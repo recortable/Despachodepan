@@ -33,12 +33,17 @@ module Extensions
         end
 
         define_method :create! do |url|
-          flash[:notice] = t(".resource.created") if resource.save
+          flash[:notice] = t("resource.created") if resource.save
           respond_with resource, location: url
         end
 
         define_method :update! do |url|
-          flash[:notice] = t(".resource.updated") if resource.save
+          flash[:notice] = t("resource.updated") if resource.save
+          respond_with resource, location: url
+        end
+
+        define_method :destroy! do |url|
+          flash[:notice] = t("resource.destroyed") if resource.destroy
           respond_with resource, location: url
         end
       end

@@ -26,6 +26,8 @@ class CreatePans < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :pans, :card_id
+
 
   end
 

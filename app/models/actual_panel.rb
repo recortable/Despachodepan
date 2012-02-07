@@ -1,3 +1,5 @@
+# @deprecated
+# TODO: borrar
 class ActualPanel
   def initialize
     

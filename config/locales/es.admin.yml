@@ -8,3 +8,4 @@ es:
   resource:
     updated: 'Guardado. ¡Yeepa!'
     created: 'Se ha añadido ¡Bien!'
+    destroyed: '¡Borrado!... miedito...'

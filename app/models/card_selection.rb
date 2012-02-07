@@ -1,6 +1,6 @@
 # SelectionCard
 # The selected images from all the projects
-class SelectionCard
+class CardSelection
   def top
     @top ||= Selection.where(extra: 'top').order('rev_date ASC')
   end

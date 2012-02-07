@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  caches_page :index, :indice, :lapanaderia, :card, :thumb, :actual, :selection
+  caches_page :index, :indice, :lapanaderia, :card, :thumb, :blog, :selection
 
   def index
     prepare_index(2000)
@@ -18,13 +18,13 @@ class PagesController < ApplicationController
   end
 
   def selection
-    @selection = SelectionCard.new
+    @selection = CardSelection.new
     render :action => 'selection', :layout => 'grids'
   end
 
-  def actual
-    @actual = Actual.new
-    render :action => 'actual', :layout => 'grids'
+  def blog
+    @blog = Blog.new
+    render :action => 'blog', :layout => 'grids'
   end
 
   def thumb
@@ -35,8 +35,8 @@ class PagesController < ApplicationController
   private
   def prepare_index(time)
     @scroll_time = time
-    @cards = Card.find(:all, :include => [:photos, :color])
-    @tags = Tag.find(:all, :order => 'position')
+    @cards = Card.includes(:color)
+    @tags = Tag.order(:position)
     render :action => 'index', :layout => 'grids'
   end
 
@@ -51,7 +51,7 @@ class PagesController < ApplicationController
       @properties << splitted
     end
 
-    first = @card.photos.first
+    first = @card.slide_images.first
     first_id = first.nil? ? '0' : first.id
     @show_image = params[:imagen].blank? ? first_id.to_s : params[:imagen]
     render :action => 'card', :layout => 'cards'
