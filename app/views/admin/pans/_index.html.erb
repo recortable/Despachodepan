@@ -26,21 +26,22 @@
         <%= content_tag(:td, pan.text) if @columns.include?(:text) %>
         <%= content_tag(:td, render_body(pan)) if @columns.include?(:body) %>
         <td class="actions">
+          <% if @columns.include? :position %>
+              <div class="positions" style="width: 15em; overflow: hidden;">
+                <%= link_to '&Darr;'.html_safe, admin_position_path(move: :bottom, pan: pan, url: request.url),
+                            method: :put %>
+                <%= link_to '&darr;'.html_safe, admin_position_path(move: :down, pan: pan, url: request.url),
+                            method: :put %>
+                <%= link_to '&uarr;'.html_safe, admin_position_path(move: :up, pan: pan, url: request.url),
+                            method: :put %>
+                <%= link_to '&Uarr;'.html_safe, admin_position_path(move: :top, pan: pan, url: request.url),
+                            method: :put %>
+              </div>
+          <% end %>
           <%= link_to 'Ver', [:admin, card, pan].compact %>
           <%= link_to 'Editar', [:edit, :admin, card, pan].compact %>
           <%= link_to 'Borrar', [:admin, card, pan].compact, class: 'delete', method: :delete,
                       confirm: '¿Estás segura? No se puede deshacer' %>
-          <% if @columns.include? :position %>
-              <%= link_to '&Darr;'.html_safe, admin_position_path(move: :bottom, pan: pan, url: request.url),
-                          method: :put %>
-              <%= link_to '&darr;'.html_safe, admin_position_path(move: :down, pan: pan, url: request.url),
-                          method: :put %>
-              <%= link_to '&uarr;'.html_safe, admin_position_path(move: :up, pan: pan, url: request.url),
-                          method: :put %>
-              <%= link_to '&Uarr;'.html_safe, admin_position_path(move: :top, pan: pan, url: request.url),
-                          method: :put %>
-
-        <% end %>
         </td>
       </tr>
   <% end %>

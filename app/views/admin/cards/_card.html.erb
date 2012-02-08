@@ -1,7 +1,7 @@
 <%= div_for card do %>
     <div class="actions">
       <%= link_to raw('&larr; Volver a la lista de fichas'), admin_cards_path %>
-      <%= link_to 'Ver esta ficha en la web', "/#{card.url}" %>
+      <%= link_to 'Ver esta ficha en la web', "/#{card.slug}" %>
       <%= link_to 'Borrar esta ficha', [:admin, card], class: 'delete', method: :delete,
                   :confirm => "Estás a punto de borrar la ficha '#{card.title}' ¿Estás segura? ¡no se puede deshacer!" unless card.id == 1 %>
 

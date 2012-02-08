@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   # @param card [Card]
   def expire_page_cache(card)
-    expire_page :controller => 'pages', :action => 'card', :id => card.url
+    expire_page :controller => 'pages', :action => 'card', :id => card.slug
     [:index, :indice, :lapanaderia, :selection, :blog].each do |action|
       url = url_for(:controller => 'pages', :action => action)
       expire_page :controller => 'pages', :action => action

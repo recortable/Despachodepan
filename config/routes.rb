@@ -12,11 +12,13 @@ Despachodepan::Application.routes.draw do
     root to: 'cards#index'
     resources :cards, path: 'fichas' do
       resources :pan_files, path: 'ficheros'
-      resources :slide_images, path: 'imagenes'
+      resources :slide_images, path: 'imagenes' do
+        post :reorder, on: :collection
+      end
       resources :main_images, path: 'imagen_principal'
     end
 
-    resource :position, path: 'posicion'
+    resource :position, path: 'posicion', only: :update
 
     resources :colors, path: 'colores'
 

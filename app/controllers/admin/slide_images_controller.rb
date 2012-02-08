@@ -29,5 +29,12 @@ class Admin::SlideImagesController < Admin::PansController
   def destroy
     destroy! admin_card_slide_images_path(card)
   end
+
+  def reorder
+    slide_images.each_with_index do |slide, index|
+      slide.update_attribute(:position, index + 1)
+    end
+    redirect_to admin_card_slide_images_path(card)
+  end
 end
 
