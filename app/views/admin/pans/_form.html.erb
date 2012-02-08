@@ -13,7 +13,7 @@
     <% if resource.type == 'Selection' %>
         <%= form.input :extra, collection: {Arriba: 'top', Abajo: 'bottom'}, include_blank: false, label: 'Posición' %>
     <% else %>
-        <%= form.input :position %>
+        <%= form.input :position, as: :hidden %>
     <% end %>
     <%= form.submit 'Guardar' %>
 <% end %>
