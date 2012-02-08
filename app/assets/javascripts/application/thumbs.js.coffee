@@ -1,6 +1,6 @@
 # Implements thumb fetching at index card
 
-# store the content
+# cache contents
 cache = []
 
 # the currently visible element id
