@@ -13,5 +13,7 @@ class Admin::SlideImagesController < Admin::PansController
   def new
     new!
   end
+
+
 end
 

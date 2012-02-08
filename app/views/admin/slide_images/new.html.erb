@@ -1,5 +1,7 @@
-<%= title "Añadir foto a '#{card.title}'" %>
+<%= title "Añadir foto a '#{slide_image.card.title}'" %>
 <div class="actions">
-  <%=  link_to 'Cancelar', admin_card_slide_images_path(card) %>
+  <%=  link_to 'Cancelar', admin_card_slide_images_path(slide_image.card) %>
 </div>
 <%= render 'form' %>
+
+<%=  simple_debug slide_image.errors %>

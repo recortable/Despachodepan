@@ -24,7 +24,6 @@ class Pan < ActiveRecord::Base
   mount_uploader :file, AmazonUploader
 
   validates :card_id, presence: true
-  validates :original_id, presence: true
 
   before_save :reverse_date
 

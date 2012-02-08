@@ -1,4 +1,5 @@
 <%= simple_form_for [:admin, resource] do |form| %>
+    <%= form.input :card_id, as: :hidden %>
     <%= form.input :date, label: 'Fecha' %>
     <% if resource.file.present? %>
         <div class="current_image">

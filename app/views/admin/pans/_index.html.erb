@@ -1,4 +1,3 @@
-
 <table>
   <thead>
   <tr>
@@ -27,7 +26,8 @@
         <td class="actions">
           <%= link_to 'Ver', [:admin, pan] %>
           <%= link_to 'Editar', [:edit, :admin, pan] %>
-          <%= link_to 'Borrar', [:admin, pan] %>
+          <%= link_to 'Borrar', [:admin, pan], class: 'delete', method: :delete,
+                      confirm: '¿Estás segura? No se puede deshacer' %>
         </td>
       </tr>
   <% end %>
