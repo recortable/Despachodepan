@@ -17,6 +17,11 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm_verbose, false
 
+# Trying to remove the path from bundler
+# https://github.com/carlhuda/bundler/blob/master/lib/bundler/deployment.rb
+#set :bundle_dir, nil
+set :bundle_flags,    "--deployment"
+
 role :app, "recortable.net"
 role :web, "recortable.net"
 role :db,  "recortable.net", :primary => true

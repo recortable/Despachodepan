@@ -1,14 +1,3 @@
 <%= title 'Noticia' %>
 
-<div class="actions">
-  <%= link_to 'volver', admin_posts_path %>
-  <%= link_to 'editar', edit_admin_post_path(post) %>
-  <%= link_to 'borrar', admin_post_path(post), class: 'delete', method: :delete,
-              confirm: "¿Quieres borrar esta noticia? Esto no se puede deshacer!" %>
-</div>
-
-<%= image_tag(post.file.url) if post.file.present? %>
-
-<div class="body">
-  <%= render_body post %>
-</div>
+<%=  render 'show' %>

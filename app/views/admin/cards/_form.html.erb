@@ -82,22 +82,28 @@
 
         <p><label for="card_main_image">Imagen principal</label>
         <span class="info">usa imágenes a 72dpi de resolución.
-          la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</span>
+          la imágen principal debe tener un máximo de 510px de ancho por 190px de alto</span>
 
           <% if card.main_image.present? %>
               <%= image_tag card.main_image.file.url %>
-              <span class="info">Para cambiar esta imágen, sube otra.</span>
+              <span class="info">Para cambiar esta imágen, borra ésta primero.</span>
+
+              <div class="actions">
+                <%= link_to 'Borrar imágen principal', [:admin, card, card.main_image],
+                            class: 'delete', method: :delete,
+                            confirm: '¿Seguro que deseas borrar la imágen principal?' %>
+              </div>
           <% else %>
+              <%= file_field_tag :main_data %>
           <% end %>
           <br/>
-          <%= file_field_tag :main_data %>
-        </p>
+          </p>
 
-        <p>
-          <label for="card_link">Enlace principal:</label>
-          <%= form.text_field :link %>
-        </p>
-      </div>
+          <p>
+            <label for="card_link">Enlace principal:</label>
+            <%= form.text_field :link %>
+          </p>
+          </div>
       <div class="col2">
         <h2>Categorías de esta ficha</h2>
 

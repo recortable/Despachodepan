@@ -1,1 +1,12 @@
-<%=  debug resource %>
+<div class="actions">
+  <%= link_to 'volver', [:admin, card, resource_name.pluralize].compact %>
+  <%= link_to 'editar', [:edit, :admin, card, resource].compact %>
+  <%= link_to 'borrar', [:admin, card, resource].compact, class: 'delete', method: :delete,
+              confirm: "¿Estás segura? ¡Esto no se puede deshacer!" %>
+</div>
+
+<%= image_tag(resource.file.url) if resource.file.present? %>
+
+<div class="body">
+  <%= render_body resource %>
+</div>

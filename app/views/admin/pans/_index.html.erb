@@ -14,7 +14,7 @@
   <% resources.each do |pan| %>
       <tr>
         <% if @columns.include?(:thumb) %>
-            <td><%= link_to image_tag(pan.file.url(:thumb)), pan.file.url if pan.file.present? %></td>
+            <td><%= link_to image_tag(pan.file.url(:thumb)), [:admin, card, pan].compact if pan.file.present? %></td>
         <% end %>
         <% if @columns.include?(:position) %>
             <td><%= pan.position %></td>
@@ -24,9 +24,9 @@
         <%= content_tag(:td, pan.text) if @columns.include?(:text) %>
         <%= content_tag(:td, render_body(pan)) if @columns.include?(:body) %>
         <td class="actions">
-          <%= link_to 'Ver', [:admin, pan] %>
-          <%= link_to 'Editar', [:edit, :admin, pan] %>
-          <%= link_to 'Borrar', [:admin, pan], class: 'delete', method: :delete,
+          <%= link_to 'Ver', [:admin, card, pan].compact %>
+          <%= link_to 'Editar', [:edit, :admin, card, pan].compact %>
+          <%= link_to 'Borrar', [:admin, card, pan].compact, class: 'delete', method: :delete,
                       confirm: '¿Estás segura? No se puede deshacer' %>
         </td>
       </tr>

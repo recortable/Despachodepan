@@ -12,21 +12,17 @@ Despachodepan::Application.routes.draw do
     root to: 'cards#index'
     resources :cards, path: 'fichas' do
       resources :pan_files, path: 'ficheros'
-      resources :selections, path: 'seleccion'
       resources :slide_images, path: 'imagenes'
       resources :slides, path: 'slides'
-    end
-    resources :slide_images, path: 'imagenes'
-    resources :slides, path: 'slides' do
-      resource :position
+      resources :main_image, path: 'imagen_principal'
     end
     resources :colors, path: 'colores'
 
+    resources :selections, path: 'seleccion'
+    resources :posts, path: 'noticias'
     resources :tags do
       resource :position, path: 'posicion'
     end
-    resources :selections, path: 'seleccion'
-    resources :posts, path: 'noticias'
   end
 
   namespace :backend do

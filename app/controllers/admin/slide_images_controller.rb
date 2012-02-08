@@ -10,10 +10,24 @@ class Admin::SlideImagesController < Admin::PansController
     index!
   end
 
+  def show
+    show!
+  end
+
   def new
     new!
   end
 
+  def create
+    create! admin_card_slide_images_path(card)
+  end
 
+  def update
+    update! admin_card_slide_images_path(card)
+  end
+
+  def destroy
+    destroy! admin_card_slide_images_path(card)
+  end
 end
 
