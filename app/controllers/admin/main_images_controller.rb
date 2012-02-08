@@ -1,4 +1,5 @@
 class Admin::MainImagesController < Admin::ApplicationController
+  respond_to :html
   expose_resource :main_image
 
   def destroy

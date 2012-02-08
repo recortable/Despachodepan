@@ -14,7 +14,7 @@ Despachodepan::Application.routes.draw do
       resources :pan_files, path: 'ficheros'
       resources :slide_images, path: 'imagenes'
       resources :slides, path: 'slides'
-      resources :main_image, path: 'imagen_principal'
+      resources :main_images, path: 'imagen_principal'
     end
     resources :colors, path: 'colores'
 

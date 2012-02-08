@@ -20,6 +20,7 @@ gem 'decent_exposure'
 gem 'simple_form'
 gem 'redcarpet'
 gem "friendly_id", "~> 4.0.0"
+gem 'carrierwave-meta'
 
 gem 'newrelic_rpm', group: [:production, :development]
 

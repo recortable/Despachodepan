@@ -86,6 +86,7 @@
 
           <% if card.main_image.present? %>
               <%= image_tag card.main_image.file.url %>
+              <span>JODER <%= simple_debug card.main_image %></span>
               <span class="info">Para cambiar esta imágen, borra ésta primero.</span>
 
               <div class="actions">
@@ -94,7 +95,7 @@
                             confirm: '¿Seguro que deseas borrar la imágen principal?' %>
               </div>
           <% else %>
-              <%= file_field_tag :main_data %>
+              <%= file_field_tag :main_image_file %>
           <% end %>
           <br/>
           </p>
