@@ -2,6 +2,7 @@
   <thead>
   <tr>
     <%= content_tag(:th, '') if @columns.include?(:thumb) %>
+    <%= content_tag(:th, 'Ficha') if @columns.include?(:card) %>
     <%= content_tag(:th, 'Posición') if @columns.include?(:position) %>
     <%= content_tag(:th, 'Fecha') if @columns.include?(:date) %>
     <%= content_tag(:th, 'Extra') if @columns.include?(:extra) %>
@@ -16,11 +17,12 @@
         <% if @columns.include?(:thumb) %>
             <td><%= link_to image_tag(pan.file.url(:thumb)), [:admin, card, pan].compact if pan.file.present? %></td>
         <% end %>
+        <%= content_tag(:td, link_to(pan.card.title, [:admin, pan.card])) if @columns.include?(:card) %>
         <% if @columns.include?(:position) %>
             <td><%= pan.position %></td>
         <% end %>
         <%= content_tag(:td, pan.date) if @columns.include?(:date) %>
-        <%= content_tag(:td, pan.extra) if @columns.include?(:extra) %>
+        <%= content_tag(:td, pan.extra_human_name) if @columns.include?(:extra) %>
         <%= content_tag(:td, pan.text) if @columns.include?(:text) %>
         <%= content_tag(:td, render_body(pan)) if @columns.include?(:body) %>
         <td class="actions">

@@ -19,7 +19,7 @@ class Site
   end
 
   def selections
-    Selection.scoped 
+    Selection.order('rev_date DESC')
   end
 
   def posts

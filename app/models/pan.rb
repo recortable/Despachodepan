@@ -37,6 +37,18 @@ class Pan < ActiveRecord::Base
     true
   end
 
+  def extra_label_human_name
+    'extra'
+  end
+
+  def extra_values
+    []
+  end
+
+  def extra_human_name
+    extra
+  end
+
   private
   def reverse_date
     self.rev_date = self.date.split('/').reverse.join('/') if self.date.present?
