@@ -9,6 +9,7 @@
     <% end %>
     <%= form.input :file, as: :file, label: 'Imágen' %>
     <%= form.input :body, as: :text, label: 'Texto' %>
+    <%= form.input :extra, collection: {'Sí' => :main}, label: 'Es principal' %>
     <%= form.submit 'Guardar' %>
 <% end %>
 

@@ -12,6 +12,7 @@
   <tr>
     <th>Nombre</th>
     <th>Tipo</th>
+    <th>Posición</th>
     <th>URL</th>
     <th>&nbsp;</th>
   </tr>
@@ -21,6 +22,7 @@
       <tr>
         <td><%= file.text %></td>
         <td><%= file.content_type %></td>
+        <td><%= file.position %></td>
         <td><%= link_to file.file.url, file.file.url if file.file? %></td>
         <td class="actions">
           <%= link_to 'Borrar', admin_card_pan_file_path(file.card, file), class: 'delete',
