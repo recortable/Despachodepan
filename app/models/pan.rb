@@ -25,7 +25,7 @@ class Pan < ActiveRecord::Base
 
   validates :card_id, presence: true
 
-  before_save :reverse_date
+  before_save :reverse_date, :update_file_attributes
 
   # http://zilkey.com/2008/3/24/advanced-acts_as_list-scope-with-multiple-columns
   # #{connection.quote_column_name("rol")}
@@ -40,5 +40,12 @@ class Pan < ActiveRecord::Base
   private
   def reverse_date
     self.rev_date = self.date.split('/').reverse.join('/') if self.date.present?
+  end
+
+  def update_file_attributes
+    if file.present? and file_changed?
+      self.width = file.width
+      self.height = file.height
+    end
   end
 end

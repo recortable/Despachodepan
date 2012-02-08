@@ -2,11 +2,16 @@
 
 class AmazonUploader < CarrierWave::Uploader::Base
   include CarrierWave::MimeTypes
+  attr_reader :width, :height
+
   process :set_content_type
+  process :get_version_dimensions
 
   # Include RMagick or ImageScience support:
   include CarrierWave::RMagick
   # include CarrierWave::ImageScience
+#  include CarrierWave::Meta
+
 
   # Choose what kind of storage to use for this uploader:
   storage :fog
@@ -30,5 +35,7 @@ class AmazonUploader < CarrierWave::Uploader::Base
     new_file.content_type.include? 'image'
   end
 
-
+  def get_version_dimensions
+    @width, @height = `identify -format "%wx%h" #{file.path}`.split(/x/)
+  end
 end

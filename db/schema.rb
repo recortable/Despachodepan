@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111007084733) do
+ActiveRecord::Schema.define(:version => 20120207191249) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(:version => 20111007084733) do
     t.integer  "selection_image_id"
     t.string   "selection_body"
     t.integer  "selection_position",                 :default => 0
+    t.string   "slug",               :limit => 300
   end
 
+  add_index "cards", ["slug"], :name => "index_cards_on_slug", :length => {"slug"=>255}
   add_index "cards", ["title"], :name => "index_cards_on_title"
   add_index "cards", ["updated_at"], :name => "index_cards_on_updated_at"
 
