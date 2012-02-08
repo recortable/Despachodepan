@@ -73,7 +73,7 @@
               <%= image_tag slide.file.url,
                             :alt => slide.body.strip, :size => "#{slide.width}x#{slide.height}" %>
               <div class="slide_text">
-                <%= markdown slide.text %>
+                <%= markdown slide.body %>
               </div>
               <div id="slideNumber<%= slide.position %>" style="display: none;"><%= slide.position %></div>
             </div>
