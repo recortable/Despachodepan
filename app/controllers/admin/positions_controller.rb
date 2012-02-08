@@ -3,6 +3,7 @@ class Admin::PositionsController < ApplicationController
   respond_to :html
 
   def update
+    load_resource
     move = params[:move]
     if move == 'top'
       @resource.move_to_top
@@ -13,12 +14,16 @@ class Admin::PositionsController < ApplicationController
     elsif move == 'down'
       @resource.move_lower
     end
-    respond_with [:admin, @resource]
+    if params[:url].present?
+      redirect_to params[:url]
+    else
+      respond_with [:admin, @resource]
+    end
   end
 
   private
   def load_resource
-    @resource = Slide.find params[:slide_id] if params[:slide_id].present?
+    @resource = Pan.find params[:pan] if params[:pan].present?
     @resource = Tag.find params[:tag_id] if params[:tag_id].present?
     @resource ||= Card.find -1
   end

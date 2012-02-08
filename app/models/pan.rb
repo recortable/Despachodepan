@@ -21,6 +21,8 @@
 class Pan < ActiveRecord::Base
   belongs_to :card
 
+  acts_as_list
+
   mount_uploader :file, AmazonUploader
 
   validates :card_id, presence: true

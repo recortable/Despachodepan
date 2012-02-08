@@ -13,9 +13,11 @@ Despachodepan::Application.routes.draw do
     resources :cards, path: 'fichas' do
       resources :pan_files, path: 'ficheros'
       resources :slide_images, path: 'imagenes'
-      resources :slides, path: 'slides'
       resources :main_images, path: 'imagen_principal'
     end
+
+    resource :position, path: 'posicion'
+
     resources :colors, path: 'colores'
 
     resources :selections, path: 'seleccion'
