@@ -196,8 +196,8 @@ body#cards {
     color: gray;
   }
 
-  #slide_controls .arrow {
-    font-size: 15px;
+  #slide_controls {
+    .arrow {overflow: hidden; height: 10px; width: 6px; text-indent: -100px;}
   }
 
   #slide_controls a {
