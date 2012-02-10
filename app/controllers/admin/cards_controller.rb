@@ -23,19 +23,28 @@ class Admin::CardsController < Admin::ApplicationController
   end
 
   def create
-    flash[:notice] = 'Ficha guardada.' if card.save
-    save_main_image(card, params[:main_image_file])
+    if card.save
+      flash[:notice] = 'Ficha guardada.'
+      save_main_image(card, params[:main_image_file])
+      expire_all_card_pages_cache(card)
+    end
     respond_with card, location: edit_admin_card_path(card)
   end
 
   def update
-    flash[:notice] = 'Ficha guardada.' if card.update_attributes(params[:card])
-    save_main_image(card, params[:main_image_file])
+    if card.update_attributes(params[:card])
+      flash[:notice] = 'Ficha guardada.'
+      save_main_image(card, params[:main_image_file])
+      expire_all_card_pages_cache(card)
+    end
     respond_with card, location: edit_admin_card_path(card)
   end
 
   def destroy
-    destroy! admin_cards_path
+    if card.destroy
+      expire_all_card_pages_cache(card)
+    end
+    respond_with card, location: admin_cards_path
   end
 
   protected

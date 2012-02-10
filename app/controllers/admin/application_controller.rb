@@ -14,4 +14,20 @@ class Admin::ApplicationController < ApplicationController
     end
   end
 
+  # @param card [Card]
+  def expire_all_card_pages_cache(card)
+    expire_card_page_cache(card)
+
+    [:index, :indice].each do |action|
+      expire_page :controller => 'pages', :action => action
+    end
+
+    card.slide_images.each { |slide| expire_slide_image_cache(slide) }
+  end
+
+  def expire_card_page_cache(card)
+    expire_page :controller => 'pages', :action => 'card', :id => card.slug
+  end
+
+
 end

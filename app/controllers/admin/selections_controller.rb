@@ -16,14 +16,22 @@ class Admin::SelectionsController < Admin::PansController
 
   def create
     create! admin_selections_path
+    expire_cache
   end
 
   def update
     update! admin_selections_path
+    expire_cache
   end
 
   def destroy
     destroy! admin_selections_path
+    expire_cache
+  end
+
+  protected
+  def expire_cache
+    expire_page :controller => 'pages', :action => :selection
   end
 end
 

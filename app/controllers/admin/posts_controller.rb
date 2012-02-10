@@ -21,14 +21,22 @@ class Admin::PostsController < Admin::PansController
   def create
     post.card_id = 1
     create! admin_posts_path
+    expire_cache
   end
 
   def update
     update! admin_posts_path
+    expire_cache
   end
 
   def destroy
     destroy! admin_posts_path
+    expire_cache
+  end
+
+  protected
+  def expire_cache
+    expire_page :controller => 'pages', :action => :selection
   end
 end
 
