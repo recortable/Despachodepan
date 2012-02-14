@@ -5,7 +5,7 @@ module Admin::ApplicationHelper
   end
 
   def textile_info
-    raw '<span class="info">Puedes escribir formato <a href="http://elzr.com/static/textile" target="_blank">Textile</a></span>'
+    raw '<span class="info">Puedes escribir formato <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">markdown</a></span>'
   end
 
   def li_link_to_unless_current(name, options = {}, html_options = {}, &block)

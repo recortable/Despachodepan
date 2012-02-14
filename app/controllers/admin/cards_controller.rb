@@ -5,6 +5,8 @@ class Admin::CardsController < Admin::ApplicationController
   expose(:colors) { Color.all }
   expose(:tags) { Tag.all }
 
+  cache_sweeper :card_sweeper
+
 
   def index
     index!
@@ -26,7 +28,6 @@ class Admin::CardsController < Admin::ApplicationController
     if card.save
       flash[:notice] = 'Ficha guardada.'
       save_main_image(card, params[:main_image_file])
-      expire_all_card_pages_cache(card)
     end
     respond_with card, location: edit_admin_card_path(card)
   end
@@ -35,14 +36,13 @@ class Admin::CardsController < Admin::ApplicationController
     if card.update_attributes(params[:card])
       flash[:notice] = 'Ficha guardada.'
       save_main_image(card, params[:main_image_file])
-      expire_all_card_pages_cache(card)
     end
     respond_with card, location: edit_admin_card_path(card)
   end
 
   def destroy
     if card.destroy
-      expire_all_card_pages_cache(card)
+      flash[:notice] = 'Ficha borrada.'
     end
     respond_with card, location: admin_cards_path
   end

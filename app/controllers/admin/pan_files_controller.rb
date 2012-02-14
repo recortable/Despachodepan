@@ -8,8 +8,24 @@ class Admin::PanFilesController < Admin::ApplicationController
     index!
   end
 
+  def new
+    new!
+  end
+
   def edit
     edit!
+  end
+
+  def create
+    create! admin_card_pan_files_path(card)
+  end
+
+  def update
+    update! admin_card_pan_files_path(card)
+  end
+
+  def destroy
+    destroy! admin_card_pan_files_path(card)
   end
 
 end

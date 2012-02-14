@@ -3,7 +3,7 @@ Despachodepan::Application.routes.draw do
   root to: 'pages#blog'
   match '/lapanaderia' => 'pages#lapanaderia'
   match '/indice' => 'pages#indice'
-  match '/seleccion' => 'pages#selection'
+  match '/seleccion' => 'pages#selection', as: :projects
   match '/noticias' => 'pages#blog', as: :posts
   match '/thumb/:id' => 'pages#thumb'
   match '/index' => 'pages#index'
@@ -39,6 +39,6 @@ Despachodepan::Application.routes.draw do
     resources :users
   end
 
-  match '/:id' => 'pages#card'
+  match '/:id' => 'pages#card', as: :card
   match '/editar/:id' => 'admin/cards#show'
 end
