@@ -25,6 +25,7 @@ gem 'newrelic_rpm', group: [:production, :development]
 
 gem 'sqlite3', require: 'sqlite3', group: [:production, :development]
 gem 'mysql2', group: [:production, :development]
+gem 'hoptoad_notifier'
 
 group :production do
   gem 'unicorn'
