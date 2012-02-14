@@ -21,6 +21,7 @@
 class Pan < ActiveRecord::Base
   belongs_to :card
 
+  acts_as_list scope: 'card_id = #{card_id} AND type = #{quote_value(type)}'
 
   mount_uploader :file, AmazonUploader
 

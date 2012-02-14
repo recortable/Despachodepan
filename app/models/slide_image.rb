@@ -1,5 +1,4 @@
 class SlideImage < Pan
-  acts_as_list
 
   RENDER = [:thumb, :position, :body]
 
