@@ -24,7 +24,7 @@ module ApplicationHelper
 
   def simple_debug(object)
     if Rails.env.development?
-      content_tag(:div, debug(object)) if object.present?
+      content_tag(:div, debug(object), class: 'simple-debug') if object.present?
     end
   end
 

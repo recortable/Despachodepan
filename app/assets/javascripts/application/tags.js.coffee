@@ -1,4 +1,5 @@
-
+# Show or hides projects based on selected tags
+# at GRID
 tagToCardIDs = {}
 
 activateTag = (id) ->

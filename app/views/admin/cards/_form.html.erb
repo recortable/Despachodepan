@@ -85,7 +85,6 @@
           la imágen principal debe tener un máximo de 510px de ancho por 190px de alto</span>
 
           <% if card.main_image.present? %>
-              <%=  simple_debug card.main_image %>
               <%= image_tag card.main_image.file.url %>
               <span class="info">Para cambiar esta imágen, borra ésta primero.</span>
 
