@@ -3,7 +3,7 @@
   <li id="nav-seleccion" class="<%= 'selected' if current_page?(seleccion_path) %>"><%= link_to 'selección', seleccion_path %></li>
   <li id="nav-indice" class="<%= 'selected' if (current_page?(projects_path)) %>"><%= link_to 'procesos', projects_path %></li>
   <%= yield :tabs %>
-  <li id="nav-panaderia" class="<%= 'selected' if current_page?(card_path(1)) || current_page?(about_path) %>">
+  <li id="nav-panaderia" class="<%= 'selected' if current_page?(card_path(1)) || current_page?(lapanaderia_path) %>">
     <%= link_to 'quiénes somos', lapanaderia_path %>
   </li>
   <li id="nav-casamasomenos" class="<%= 'selected' if current_page?(card_path(Card::NAMED[:casamasomenos])) || current_page?(casamasomenos_path) %>">
