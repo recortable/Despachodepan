@@ -12,7 +12,7 @@ class Card < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :pan_files, :class_name => 'PanFile', :dependent => :destroy
 
-  has_one :main_image
+  has_one :main_image, dependent: :destroy
   has_one :main_slide, class_name: 'SlideImage'
 
   belongs_to :color

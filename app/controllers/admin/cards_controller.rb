@@ -49,6 +49,6 @@ class Admin::CardsController < Admin::ApplicationController
 
   protected
   def save_main_image(card, image)
-    MainImage.create!(card: card, file: image)
+    MainImage.create!(card: card, file: image) if image.present?
   end
 end
