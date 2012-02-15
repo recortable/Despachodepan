@@ -3,9 +3,9 @@
              width: <%= post.width %>px;">
   <div class="text" style="background-color: <%= "##{post.card.color.high_value}" %>;">
     <span class="date"><%= post.date %></span>
-    <span class="title"><%= link_to_if post.card.visible?, post.card.title, post.card.path, :style => "color: ###{post.card.color.value};" %></span>
+    <span class="title"><%= link_to_if post.card.visible?, post.card.title, post.card.slug, :style => "color: ###{post.card.color.value};" %></span>
 
     <div class="body"><%= render_body post %></div>
   </div>
-  <%= (link_to_if post.card.visible?, image_tag(post.file.url), post.card.path) if post.file.present? %>
+  <%= (link_to_if post.card.visible?, image_tag(post.file.url), post.card.slug) if post.file.present? %>
 </div>

@@ -15,15 +15,7 @@
       <div id="playground">
         <a href="/lapanaderia" id="logo">La Panadería</a>
         <%= render 'layouts/social' %>
-        <ul id="tabs">
-          <li id="nav-actual" class="<%= 'selected' if (current_page?(posts_path)|| current_page?(root_path)) %>"><%= link_to 'noticias', posts_path %></li>
-          <li id="nav-seleccion" class="<%= 'selected' if current_page?(seleccion_path) %>"><%= link_to 'selección', seleccion_path %></li>
-          <li id="nav-indice" class="<%= 'selected' if (current_page?(projects_path)) %>"><%= link_to 'procesos', projects_path %></li>
-          <%= yield :tabs %>
-          <li id="nav-panaderia">
-          <%= link_to 'quiénes somos', lapanaderia_path %>
-          </li>
-        </ul>
+        <%= render 'layouts/tabs' %>
         <%= yield %>
 
         <div id="info" style="width: 864px; display: none;">

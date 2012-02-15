@@ -2,6 +2,9 @@
 require 'date.rb'
 
 class Card < ActiveRecord::Base
+
+  NAMED = {lapanaderia: 1, casamasomenos: 72}
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -52,17 +55,8 @@ class Card < ActiveRecord::Base
   BLOCS_PER_YEAR = 16
   DAYS_PER_BLOC = 365 / 16
 
-
   def displayable?
     visible? and start.present? and vposition.present?
-  end
-
-  def reorder_photos
-    photos.each_with_index { |photo, index| photo.update_attribute(:pos, index + 1) }
-  end
-
-  def path
-    "/#{url}"
   end
 
   def is_about?(tag)

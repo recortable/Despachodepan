@@ -49,10 +49,10 @@ body#grids {
     #tabs li {
         float: left; height: 16px; padding: 1px 0 1px 0;
         text-align: center; margin-right: 11px; margin-top: 0;
-        border: 1px solid $azul;
     }
     #tabs li.selected {border-bottom: 1px solid white;}
     #tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
+    #tabs li#nav-casamasomenos {float: right;}
 
     /** GRID **/
     #grid .element {

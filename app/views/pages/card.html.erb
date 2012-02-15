@@ -11,13 +11,14 @@
     </style>
 <% end -%>
 
-<% if @card.id != 1 %>
+<% if @card.id != 1 and @card.id != Card::NAMED[:casamasomenos] %>
     <div id="title" style=" <%= border_tab @card.color.value %>">
       <span style="color: <%= "##{@card.color.value}" %>;"><%= @card.title %></span>
     </div>
 <% end %>
 
-<div id="card" style="border: 1px solid <%= "##{@card.color.value}" %>;">
+<div id="card" style="border: 1px solid <%= "##{@card.color.value}" %>;"
+     data-card-id="<%= @card.id %>" data-card-slug="<%= @card.slug %>">
   <div id="properties" class="card_element"
        style="background-color: <%= "##{@card.color.high_value}" %>; color: <%= "##{@card.color.value}" %>;">
 

@@ -186,6 +186,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    will_paginate (3.0.3)
     yaml_db (0.2.2)
 
 PLATFORMS
@@ -216,4 +217,5 @@ DEPENDENCIES
   turn
   uglifier (>= 1.0.3)
   unicorn
+  will_paginate (~> 3.0)
   yaml_db

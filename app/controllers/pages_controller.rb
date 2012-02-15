@@ -13,6 +13,10 @@ class PagesController < ApplicationController
     prepare_card(Card.find(1))
   end
 
+  def casamasomenos
+    prepare_card(Card.find Card::NAMED[:casamasomenos])
+  end
+
   def card
     prepare_card Card.find(params[:id])
   end

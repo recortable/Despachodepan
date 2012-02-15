@@ -42,8 +42,16 @@ a#logo:hover {
 #nav-seleccion {width: 71px;}
 #nav-indice {width: 71px;}
 #tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
+#tabs li#nav-casamasomenos {
+  float: right; width: 143px; margin-right: 1em;
+  border-left-color: $naranja;
+  border-top-color: $naranja;
+  border-right-color: $naranja;
+}
+#tabs li#nav-casamasomenos a {color: $naranja;}
 
-p {
+
+  p {
   em {font-weight: bold;}
   strong {font-style: italic;}
 }
