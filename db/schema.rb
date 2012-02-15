@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214232046) do
-
-  create_table "card_files", :force => true do |t|
-    t.integer "parent_id"
-    t.string  "content_type"
-    t.string  "filename"
-    t.integer "size"
-    t.integer "card_id"
-    t.string  "title"
-  end
+ActiveRecord::Schema.define(:version => 20120215190314) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -61,16 +52,6 @@ ActiveRecord::Schema.define(:version => 20120214232046) do
     t.string "high_value"
   end
 
-  create_table "images", :force => true do |t|
-    t.integer "parent_id"
-    t.string  "content_type"
-    t.string  "filename"
-    t.string  "thumbnail"
-    t.integer "size"
-    t.integer "width"
-    t.integer "height"
-  end
-
   create_table "pans", :force => true do |t|
     t.string   "type",         :limit => 32
     t.integer  "card_id"
@@ -92,33 +73,10 @@ ActiveRecord::Schema.define(:version => 20120214232046) do
 
   add_index "pans", ["card_id"], :name => "index_pans_on_card_id"
 
-  create_table "slides", :force => true do |t|
-    t.integer "card_id"
-    t.integer "image_id"
-    t.string  "text"
-    t.integer "pos"
-    t.string  "date"
-    t.string  "rol"
-    t.string  "body",     :limit => 4096
-    t.string  "extra"
-    t.string  "rev_date"
-  end
-
   create_table "tags", :force => true do |t|
     t.string  "name"
     t.integer "position"
     t.integer "color_id"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "login"
-    t.string   "email"
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "remember_token"
-    t.datetime "remember_token_expires_at"
   end
 
 end
