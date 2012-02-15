@@ -18,7 +18,8 @@ showActiveProjects = ->
     $.each active, ->
       id = $(this).attr('id').substring(4);
       cardIds = tagToCardIDs[id]
-      $.each cardIds, -> $(".card#{this}").removeClass('hide')
+      $.each cardIds, ->
+        $(".card#{this}").removeClass('hide').fadeIn()
 
     $(".card.hide").fadeOut(500);
 
