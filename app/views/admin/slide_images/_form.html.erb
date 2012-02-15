@@ -10,6 +10,7 @@
     <%= form.input :file, as: :file, label: 'Imágen' %>
     <%= form.input :body, as: :text, label: 'Texto' %>
     <%= form.input :timeline_position, as: :string, label: 'Cuadradito' %>
+    <%= form.input :text_align, collection: ['Izquierda', 'Centrado'], include_blank: false, label: 'Posición del texto' %>
     <%= form.submit 'Guardar' %>
 <% end %>
 

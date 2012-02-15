@@ -17,7 +17,7 @@
     </div>
 <% end %>
 
-<div id="card" style="    border: 1px solid <%= "##{@card.color.value}" %>;">
+<div id="card" style="border: 1px solid <%= "##{@card.color.value}" %>;">
   <div id="properties" class="card_element"
        style="background-color: <%= "##{@card.color.high_value}" %>; color: <%= "##{@card.color.value}" %>;">
 
@@ -72,7 +72,7 @@
             <div id="slideImage<%= slide.position %>" class="slide" style="display: none">
               <%= image_tag slide.file.url,
                             :alt => slide.body.strip, :size => "#{slide.width}x#{slide.height}" %>
-              <div class="slide_text">
+              <div class="slide_text" style="text-align: <%= slide_text_align(slide) %>">
                 <%= markdown slide.body %>
               </div>
               <div id="slideNumber<%= slide.position %>" style="display: none;"><%= slide.position %></div>

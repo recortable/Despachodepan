@@ -119,5 +119,9 @@ module PagesHelper
   def pinta_div(id, clazz, style, content)
     content_tag :div, content, :class => clazz, :id => id, :style => style.pinta
   end
+
+  def slide_text_align(slide)
+    slide.text_align == 'Centrado' ? 'center' : 'left'
+  end
 end
 

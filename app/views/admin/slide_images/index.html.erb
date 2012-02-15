@@ -12,6 +12,7 @@
     <th>Imágen</th>
     <th>Posición</th>
     <th>Texto</th>
+    <th>Alineación</th>
     <th>Cuadradito</th>
     <th>Principal</th>
     <th>&nbsp;</th>
@@ -29,6 +30,7 @@
                   method: :put %>
     </td>
     <td><%= render_body(image) %></td>
+    <td><%= image.text_align == 'Centrado' ? 'Centrado' : 'Izquierda' %></td>
     <td><%= image.timeline_position %></td>
     <td><%= 'Sí' if card.main_slide_id == image.id %></td>
     <td class="actions">

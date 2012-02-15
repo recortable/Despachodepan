@@ -1,5 +1,5 @@
 class SlideImage < Pan
-  store :settings, accessors: [ :timeline_position]
+  store :settings, accessors: [ :timeline_position, :text_align]
 
   RENDER = [:thumb, :position, :body]
 
