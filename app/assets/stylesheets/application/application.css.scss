@@ -39,7 +39,7 @@ a#logo:hover {
 #tabs li a {color: $azul;}
 #tabs li.selected {border-bottom: 1px solid white; height: 15px; }
 #nav-actual {width: 59px;}
-#nav-seleccion {width: 71px;}
+#nav-seleccion {width: 95px;}
 #nav-indice {width: 71px;}
 #tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
 #tabs li#nav-casamasomenos {
@@ -48,7 +48,7 @@ a#logo:hover {
   border-top-color: $naranja;
   border-right-color: $naranja;
 }
-#tabs li#nav-casamasomenos a {color: $naranja;}
+#tabs li#nav-casamasomenos a {width: 143px; color: $naranja;}
 
 
   p {

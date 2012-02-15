@@ -4,7 +4,7 @@ Despachodepan::Application.routes.draw do
   match '/lapanaderia' => 'pages#lapanaderia', as: :lapanaderia
   match '/casamasomenos' => 'pages#casamasomenos', as: :casamasomenos
   match '/procesos' => 'pages#indice', as: :projects
-  match '/seleccion' => 'pages#selection', as: :seleccion
+  match '/que-hacemos' => 'pages#selection', as: :seleccion
   match '/noticias' => 'pages#blog', as: :posts
   match '/thumb/:id' => 'pages#thumb'
   match '/index' => 'pages#index'
