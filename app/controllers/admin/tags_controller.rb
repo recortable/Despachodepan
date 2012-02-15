@@ -15,12 +15,27 @@ class Admin::TagsController < Admin::ApplicationController
     redirect_to admin_tags_path
   end
 
+  def edit
+    edit!
+  end
+
+  def new
+    new!
+  end
+
   def create
-    create! admin_tags_path
+    category = Tag.new params[:tag]
+    flash[:notice] = "Categoria #{category.name} creada!" if category.save
+    respond_with category, location: admin_tags_path
   end
 
   def update
+    category.attributes = params[:tag]
     update! admin_tags_path
+  end
+
+  def destroy
+    destroy! admin_tags_path
   end
 
 end
