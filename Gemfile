@@ -5,7 +5,7 @@ gem 'rails', '3.2.1'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -22,10 +22,7 @@ gem 'redcarpet'
 gem "friendly_id", "~> 4.0.0"
 gem 'will_paginate', '~> 3.0'
 
-gem 'newrelic_rpm', group: [:production, :development]
 
-gem 'sqlite3', require: 'sqlite3', group: [:production, :development]
-gem 'mysql2', group: [:production, :development]
 gem 'hoptoad_notifier'
 
 group :production do
@@ -34,7 +31,13 @@ end
 
 group :development do
   gem 'capistrano'
+  gem 'sqlite3'
 #  gem 'thin'
+end
+
+group :production, :development do
+  gem 'newrelic_rpm'
+  gem 'mysql2'
 end
 
 group :test, :development do
@@ -45,11 +48,12 @@ group :test, :development do
 end
 
 group :test do
- gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'turn', :require => false
+  gem 'spork', '~> 1.0rc'
 #  gem "cucumber-rails", ">= 1.0.2"
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem "factory_girl_rails", "~> 1.2"
 end
 
 
