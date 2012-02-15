@@ -4,4 +4,34 @@
 <div class="actions">
   <%=  link_to 'Añadir a la selección', new_admin_selection_path %>
 </div>
-<%= render 'index' %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Imágen</th>
+    <th>Fecha</th>
+    <th>Fila</th>
+    <th>Ficha</th>
+    <th>Contenido</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% selections.each do |selection| %>
+      <tr>
+        <td><%= image_tag selection.file_url(:thumb) if selection.file %></td>
+        <td><%= selection.date %></td>
+        <td><%= selection.row_position %></td>
+        <td><%= link_to selection.card.title, [:admin, selection.card] %></td>
+        <td><%= render_body(selection) %></td>
+        <td class="actions">
+          <%= link_to 'Ver', [:admin, card, selection] %>
+          <%= link_to 'Editar', [:edit, :admin, card, selection] %>
+          <%= link_to 'Borrar', [:admin, card, selection], class: 'delete', method: :delete,
+                      confirm: '¿Estás segura? No se puede deshacer' %>
+
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

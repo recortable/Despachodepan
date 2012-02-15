@@ -6,4 +6,39 @@
   <%= link_to 'Subir foto', new_admin_card_slide_image_path(card) %>
   <%= link_to 'Reordenar', reorder_admin_card_slide_images_path(card), method: :post %>
 </div>
-<%= render 'index' %>
+<table>
+  <thead>
+  <tr>
+    <th>Imágen</th>
+    <th>Posición</th>
+    <th>Texto</th>
+    <th>Cuadradito</th>
+    <th>Principal</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% slide_images.each do |image| %>
+  <tr>
+    <td><%= image_tag image.file_url(:thumb) if image.file %></td>
+    <td>
+      <%= image.position %>
+      <%= link_to '&uarr;'.html_safe, admin_position_path(move: :down, pan: image, url: request.url),
+                  method: :put %>
+      <%= link_to '&darr;'.html_safe, admin_position_path(move: :up, pan: image, url: request.url),
+                  method: :put %>
+    </td>
+    <td><%= render_body(image) %></td>
+    <td><%= image.timeline_position %></td>
+    <td><%= 'Sí' if card.main_slide_id == image.id %></td>
+    <td class="actions">
+      <%= link_to 'Ver', [:admin, card, image] %>
+      <%= link_to 'Editar', [:edit, :admin, card, image] %>
+      <%= link_to 'Borrar', [:admin, card, image], class: 'delete', method: :delete,
+                  confirm: '¿Estás segura? No se puede deshacer' %>
+
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

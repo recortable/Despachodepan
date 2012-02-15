@@ -86,9 +86,13 @@ form label {
 form p span {}
 form input[type=text] {
     width: 20em; padding: 2px;
-    border: 1px solid $grisclaro;}
+    border: 1px solid $gris;}
 textarea {width: 95%; padding: 2px; margin: 2px 5% 0 2px;}
 textarea.medium {height: 10em;}
+
+form div.input.boolean {width: 100%; overflow: hidden; padding: 1em 0;}
+form div.input.boolean input {float: left;}
+form div.input.boolean label {float: left; margin: 0 0 0 1em;}
 
 .simple_form input[type=submit] {margin-top: 10px;}
 

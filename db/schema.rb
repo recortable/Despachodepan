@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214213431) do
+ActiveRecord::Schema.define(:version => 20120214232046) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20120214213431) do
     t.integer  "position"
     t.string   "date",         :limit => 100
     t.text     "body"
-    t.string   "extra",        :limit => 32
     t.string   "rev_date",     :limit => 16
     t.string   "content_type", :limit => 64
     t.integer  "size"
@@ -88,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20120214213431) do
     t.integer  "original_id"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+    t.string   "settings",     :limit => 200
   end
 
   add_index "pans", ["card_id"], :name => "index_pans_on_card_id"

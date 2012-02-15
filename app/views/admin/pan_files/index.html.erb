@@ -11,9 +11,9 @@
   <thead>
   <tr>
     <th>Nombre</th>
-    <th>Tipo</th>
     <th>Posición</th>
-    <th>URL</th>
+    <th>Tipo</th>
+    <th>Enlace</th>
     <th>&nbsp;</th>
   </tr>
   </thead>
@@ -21,12 +21,18 @@
   <% pan_files.each do |file| %>
       <tr>
         <td><%= file.text %></td>
+        <td>
+          <%= file.position %>
+          <%= link_to '&uarr;'.html_safe, admin_position_path(move: :up, pan: file, url: request.url),
+                      method: :put %>
+          <%= link_to '&darr;'.html_safe, admin_position_path(move: :down, pan: file, url: request.url),
+                      method: :put %>
+        </td>
         <td><%= file.content_type %></td>
-        <td><%= file.position %></td>
         <td><%= link_to file.file.url, file.file.url if file.file? %></td>
         <td class="actions">
           <%= link_to 'Borrar', admin_card_pan_file_path(file.card, file), class: 'delete',
-          method: :delete, confirm: '¿Estás segura? No se puede deshacer' %>
+                      method: :delete, confirm: '¿Estás segura? No se puede deshacer' %>
           <%= link_to 'Editar', edit_admin_card_pan_file_path(file.card, file) %>
         </td>
       </tr>

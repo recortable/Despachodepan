@@ -10,7 +10,7 @@
     <% end %>
     <%= form.input :file, as: :file, label: 'Imágen' %>
     <%= form.input :body, as: :text, label: 'Texto' %>
-    <%= form.input :extra, collection: {Arriba: 'top', Abajo: 'bottom'}, include_blank: false, label: 'Posición' %>
+    <%= form.input :row_position, collection: [:Arriba, :Abajo], include_blank: false, label: 'Posición' %>
     <%= form.submit 'Guardar' %>
 <% end %>
 

@@ -3,7 +3,7 @@ class Admin::SelectionsController < Admin::PansController
   expose(:selections) { parent.selections }
 
   def index
-    @columns = [:thumb, :date, :extra, :body, :card]
+    @columns = [:thumb, :date, :body, :card]
   end
 
   def new

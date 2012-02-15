@@ -60,7 +60,7 @@ module PagesHelper
   # @param card [Card]
   def pinta_main(card)
     if card.main_slide.present?
-      id = "main-#{card.main_slide.id}-#{card.id}"
+      id = "main-#{card.main_slide_id}-#{card.id}"
       extra = "preview"
     else
       id = "main--#{card.id}"

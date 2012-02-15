@@ -2,7 +2,7 @@ class Admin::PanFilesController < Admin::ApplicationController
   respond_to :html
 
   expose_resource :pan_file
-  expose(:pan_files) { parent.pan_files }
+  expose(:pan_files) { parent.pan_files.reorder('position ASC') }
 
   def index
     index!

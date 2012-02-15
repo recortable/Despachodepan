@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
 
   def selection
-    @selection = CardSelection.new
+    @selection = SelectionCard.new
     render :action => 'selection', :layout => 'grids'
   end
 

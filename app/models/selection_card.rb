@@ -1,12 +1,25 @@
 # SelectionCard
 # The selected images from all the projects
-class CardSelection
+class SelectionCard
+  def initialize
+    all = Selection.reorder('rev_date ASC, updated_at DESC')
+    @top = []
+    @bottom = []
+    all.each do |selection|
+      if selection.row_position == 'Arriba'
+        @top << selection
+      else
+        @bottom << selection
+      end
+    end
+  end
+
   def top
-    @top ||= Selection.where(extra: 'top').order('rev_date ASC')
+    @top
   end
   
   def bottom
-    @bottom ||= Selection.where(extra: 'bottom').order('rev_date ASC')
+    @bottom
   end
 
  def width
