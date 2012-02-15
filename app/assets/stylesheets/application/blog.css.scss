@@ -1,0 +1,28 @@
+@import 'application/variables.css.scss';
+
+#time-panel .news {
+  float: left; height: 440px; margin-right: 10px;
+}
+
+.news .text {
+  width: 100%; padding: 0 0% 5px 0%; overflow: hidden;
+  overflow: hidden;
+
+  span {margin: 3px; display: block;}
+  span.date {margin-top: 10px; margin-bottom: 10px; height: 1.2em;}
+  span.title {margin-bottom: 5px;}
+  div.body {color: gray;margin: 3px; }
+  div.body span {display: inline;}
+
+}
+
+#news-load-more {
+  width: 80px;
+  background-color: #E7F9FE;
+          
+  a {
+    display: block; width: 100%; overflow: hidden;
+    margin-top: 200px;
+    text-align: center;
+  }
+}

@@ -1,9 +1,13 @@
-
 <% title('actual') %>
 
 <div id="wrapper">
   <div id="time-panel" style="width: <%= @blog.width %>px;">
     <div class="line">
+      <% if @blog.has_previous? %>
+          <div id="news-load-more" class="news">
+            <%= link_to '<< Más' %>
+          </div>
+      <% end %>
       <%= render partial: 'post', collection: @blog.posts %>
     </div>
   </div>

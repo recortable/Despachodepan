@@ -82,16 +82,6 @@ body#grids {
 
     #time-panel .line {width: 100%; overflow: hidden; margin-bottom: 10px;}
 
-
-
-    #time-panel .news {
-        float: left; height: 440px; margin-right: 10px;
-    }
-    #time-panel .news img {
-
-    }
-
-
     #preview {
         position: absolute;
         background-color: white;
@@ -113,18 +103,7 @@ body#grids {
         text-align: left;
     }
 
-    /** ACTUAL **/
 
-    .news .text {
-        width: 100%; padding: 0 0% 5px 0%; overflow: hidden;
-        overflow: hidden;
-    }
-
-    .news .text span {margin: 3px; display: block;}
-    .news .text span.date {margin-top: 10px; margin-bottom: 10px; height: 1.2em;}
-    .news .text span.title {margin-bottom: 5px;}
-    .news .text div.body {color: gray;margin: 3px; }
-    .news .text div.body span {display: inline;}
 
     /** SELECCIÓN **/
     #time-panel .selected {
