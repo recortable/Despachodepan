@@ -24,7 +24,7 @@ class Admin::PositionsController < ApplicationController
   private
   def load_resource
     @resource = Pan.find params[:pan] if params[:pan].present?
-    @resource = Tag.find params[:tag_id] if params[:tag_id].present?
+    @resource = Tag.find params[:tag] if params[:tag].present?
     @resource ||= Card.find -1
   end
 end

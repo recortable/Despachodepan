@@ -25,12 +25,10 @@
             </td>
             <td>
               <%= tag.position %>
-              <div>
-                <%#= link_to image_tag('move_top.png'), admin_tag_position_path(tag, move: :top), method: :put %>
-                <%#= link_to image_tag('move_up.png'), admin_tag_position_path(tag, move: :up), method: :put %>
-                <%#= link_to image_tag('move_down.png'), admin_tag_position_path(tag, move: :down), method: :put %>
-                <%#= link_to image_tag('move_bottom.png'), admin_tag_position_path(tag, move: :bottom), method: :put %>
-              </div>
+              <%= link_to '&darr;'.html_safe, admin_position_path(move: :down, tag: tag, url: request.url),
+                          method: :put %>
+              <%= link_to '&uarr;'.html_safe, admin_position_path(move: :up, tag: tag, url: request.url),
+                          method: :put %>
             </td>
             <td>
               <%= color_example tag.color.value %>
