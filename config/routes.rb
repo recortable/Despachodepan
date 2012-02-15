@@ -14,6 +14,7 @@ Despachodepan::Application.routes.draw do
       resources :pan_files, path: 'ficheros'
       resources :slide_images, path: 'imagenes' do
         post :reorder, on: :collection
+        put :mark_as_main, on: :member
       end
       resources :main_images, path: 'imagen_principal'
     end

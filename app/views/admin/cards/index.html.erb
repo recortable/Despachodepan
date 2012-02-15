@@ -9,7 +9,7 @@
   <tr>
     <td>Título</td>
     <td>Imágen</td>
-    <td>Foto</td>
+    <td>Imágenes y ficheros</td>
     <td>Posición</td>
     <td>Categorías</td>
     <td>Última edición</td>
@@ -29,9 +29,11 @@
         </td>
 
         <td><%= image_tag card.main_image.file.url(:thumb) unless card.main_image.nil? %></td>
-        <td><%#= image_tag card.main_slide.image.stored_url(:thumb) unless card.main_slide.nil? %>
-          <br/>
-          <%= card.slide_images.count %> fotos y <%= card.pan_files.count %> ficheros
+        <td>
+          <%= card.slide_images.count %> fotos
+          (<%= link_to 'ver', admin_card_slide_images_path(card) %>)<br/>
+          y <%= card.pan_files.count %> ficheros
+          (<%= link_to 'ver', admin_card_pan_files_path(card) %>)
         </td>
 
         <td>

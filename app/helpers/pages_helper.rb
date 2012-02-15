@@ -35,7 +35,7 @@ module PagesHelper
     result = ""
     begin_column = card.begin_column
     for slide in card.slide_images
-      pinta_slide(card, slide, begin_column, result) unless slide.date.blank? || slide.date.to_i == 0
+      pinta_slide(card, slide, begin_column, result)
     end
     raw result.to_s
   end
@@ -77,16 +77,19 @@ module PagesHelper
   end
 
   def pinta_slide(card, slide, begin_column, memo)
-    id = "milestone-#{slide.id}-#{card.id}"
-    left = (begin_column + slide.date.to_i) * BLOC_SIZE
-    top = card.vposition * BLOC_SIZE
-    style = new_style(left, top, BLOC_SIZE - 4, BLOC_SIZE - 4, 'white')
-    style['border'] = "2px solid ##{card.color.value};"
-    style['font-size'] = '1px'
-    clazz = "card element milestone preview card#{card.id}"
-    memo << content_tag(:a, ' ', {:class => clazz, :id => id,
-                                  :href => "/#{card.slug}#/imagen=#{slide.position}",
-                                  :style => style.pinta})
+    square_position = slide.timeline_position.to_i
+    if square_position != 0
+      id = "milestone-#{slide.id}-#{card.id}"
+      left = (begin_column + square_position) * BLOC_SIZE
+      top = card.vposition * BLOC_SIZE
+      style = new_style(left, top, BLOC_SIZE - 4, BLOC_SIZE - 4, 'white')
+      style['border'] = "2px solid ##{card.color.value};"
+      style['font-size'] = '1px'
+      clazz = "card element milestone preview card#{card.id}"
+      memo << content_tag(:a, ' ', {:class => clazz, :id => id,
+                                    :href => "/#{card.slug}#/imagen=#{slide.position}",
+                                    :style => style.pinta})
+    end
   end
 
   def pinta_line(card)

@@ -33,6 +33,14 @@ class Admin::SlideImagesController < Admin::PansController
     expire_slide_image_cache(slide_image)
   end
 
+
+  # mark_as_main action
+  def mark_as_main
+    card.update_attribute(:main_slide_id, slide_image.id)
+    redirect_to admin_card_slide_images_path(card)
+  end
+
+  # reorder action (currently unused)
   def reorder
     slide_images.each_with_index do |slide, index|
       slide.update_attribute(:position, index + 1)
@@ -42,6 +50,7 @@ class Admin::SlideImagesController < Admin::PansController
     redirect_to admin_card_slide_images_path(card)
   end
 
+  protected
   def expire_slide_image_cache(slide)
     expire_page :controller => 'pages', :action => 'card', :id => card.slug
     expire_page :controller => 'pages', :action => 'thumb', :id => slide.id
