@@ -14,3 +14,9 @@ production:
   access_key_id: AKIAJEYGNZI3ZGKEZ5LQ
   secret_access_key: 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
 
+staging:
+  bucket: depan
+  access_key_id: AKIAJEYGNZI3ZGKEZ5LQ
+  secret_access_key: 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
+
+

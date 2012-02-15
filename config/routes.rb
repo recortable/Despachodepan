@@ -1,7 +1,7 @@
 Despachodepan::Application.routes.draw do
 
   root to: 'pages#blog'
-  match '/lapanaderia' => 'pages#lapanaderia', as: :about
+  match '/lapanaderia' => 'pages#lapanaderia', as: :lapanaderia
   match '/casamasomenos' => 'pages#casamasomenos', as: :casamasomenos
   match '/procesos' => 'pages#indice', as: :projects
   match '/seleccion' => 'pages#selection', as: :seleccion
