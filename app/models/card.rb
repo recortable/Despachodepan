@@ -21,33 +21,8 @@ class Card < ActiveRecord::Base
   belongs_to :color
   has_and_belongs_to_many :tags, :include => [:color]
 
-  has_many :old_slides, :order => 'pos', :include => [:image]
-  has_many :old_photos,  :order => 'pos', :include => [:image],
-           :class_name => 'Slide', :conditions => {:rol => 'slide'}
-  has_many :old_news, :order => 'date', :include => [:image],
-           :class_name => 'Slide', :conditions => {:rol => 'news'}
-
-  belongs_to :old_selection_image, :class_name => "Image",
-             :foreign_key => :selection_image_id, :dependent => :destroy
-
-  # has_many :old_files, :class_name => 'CardFile', :dependent => :destroy
-  # has_many :old_card_files, :class_name => 'CardFile', :dependent => :destroy
-  #has_many :old_selections, :dependent => :destroy, :order => 'date', :include => [:image],
-  #         :class_name => 'Slide', :conditions => {:rol => 'selection'}
-  belongs_to :old_main_image, :class_name => "Image",
-             :foreign_key => :main_image_id, :dependent => :destroy
-  # belongs_to :old_main_slide, :foreign_key => :main_slide_id,
-  #           :class_name => 'Slide', :include => [:image]
-  # has_one :old_main_slide, :class_name => 'Slide', :conditions => {:rol => 'slide', :extra => 'main'}, :include => [:image]
-  belongs_to :old_main_file, :foreign_key => :main_file_id,
-             :class_name => 'CardFile'
-  #has_one :selection
-
   # VALIDATIONS
   validates_presence_of :title
-
-  # CALLBACKS
-  before_save :generate_url
 
   POSITION = {:top => 0, :bottom => 1}
 
@@ -107,12 +82,5 @@ class Card < ActiveRecord::Base
     year = date.year - BEGIN_YEAR
     offset = date.yday / DAYS_PER_BLOC
     year * BLOCS_PER_YEAR + offset
-  end
-
-  def generate_url
-    if self.respond_to?(:url) && self.url.blank?
-      self.url = title.downcase.gsub(' ', '-').gsub(/"/, '').gsub(/á/, 'a').
-          gsub(/é/, 'e').gsub(/í/, 'i').gsub(/ó/, 'o').gsub(/ú/, 'u')
-    end
   end
 end
