@@ -1,5 +1,5 @@
 
-scrollTime = 0
+scrollTime = 300
 scrollSize = 30000
 
 $ ->
