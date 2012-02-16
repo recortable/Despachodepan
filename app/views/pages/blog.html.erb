@@ -2,7 +2,7 @@
 
 <div id="wrapper" class="autoscroll">
   <div id="time-panel" style="width: <%= @blog.width %>px;">
-    <div class="line">
+    <div class="line" style="display: none;">
       <% if @blog.has_previous? %>
           <div id="news-load-more" class="news">
             <%= link_to '<< Más' %>
