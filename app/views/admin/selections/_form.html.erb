@@ -9,6 +9,8 @@
         </div>
     <% end %>
     <%= form.input :file, as: :file, label: 'Imágen' %>
+    <%= form.input :width %>
+    <%= form.input :height %>
     <%= form.input :body, as: :text, label: 'Texto' %>
     <%= form.input :row_position, collection: [:Arriba, :Abajo], include_blank: false, label: 'Posición' %>
     <%= form.submit 'Guardar' %>

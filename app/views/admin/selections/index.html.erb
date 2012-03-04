@@ -9,6 +9,7 @@
   <thead>
   <tr>
     <th>Imágen</th>
+    <th>Tamaño</th>
     <th>Fecha</th>
     <th>Fila</th>
     <th>Ficha</th>
@@ -20,6 +21,7 @@
   <% selections.each do |selection| %>
       <tr>
         <td><%= image_tag selection.file_url(:thumb) if selection.file %></td>
+        <td><%= selection.width %>x<%= selection.height %>px</td>
         <td><%= selection.date %></td>
         <td><%= selection.row_position %></td>
         <td><%= link_to selection.card.title, [:admin, selection.card] %></td>

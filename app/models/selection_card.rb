@@ -17,17 +17,28 @@ class SelectionCard
   def top
     @top
   end
-  
+
   def bottom
     @bottom
   end
 
- def width
+  def width
+    @width ||= calculate_width
+  end
+
+  protected
+  def calculate_width
+    max_top = top.each.map(&:width).inject{|sum, n| sum + 10 + n } + 10 || 200
+    max_bottom = bottom.each.map(&:width).inject{|sum, n| sum + 10 + n } || 200
+    max_top > max_bottom ? max_top : max_bottom
+  end
+
+  def old_w
     if !@width
-      max_top = top.each.map{|slide| slide.width + 10}.inject {|sum, n| sum + n }
-      max_bottom = bottom.each.map{|slide| slide.width + 10}.inject {|sum, n| sum + n }
+      max_top = top.each.map { |slide| slide.width + 10 }.inject { |sum, n| sum + n }
+      max_bottom = bottom.each.map { |slide| slide.width + 10 }.inject { |sum, n| sum + n }
       @width = (max_top && max_bottom) ? (max_top > max_bottom ? max_top : max_bottom) : 0
-      @width = @width <  843 ? 843 : @width
+      @width = @width < 843 ? 843 : @width
     end
     @width
   end
