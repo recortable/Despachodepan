@@ -72,7 +72,7 @@
         <% @card.slide_images.each do |slide| %>
             <div id="slideImage<%= slide.position %>" class="slide" style="display: none">
               <%= image_tag slide.file.url,
-                            :alt => slide.body.strip, :size => "#{slide.width}x#{slide.height}" %>
+                            :alt => slide.body.strip, :size => "#{slide.width}x#{slide.height}" if slide.file? %>
               <div class="slide_text" style="text-align: <%= slide_text_align(slide) %>">
                 <%= markdown slide.body %>
               </div>
