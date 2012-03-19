@@ -36,7 +36,7 @@ class Admin::PostsController < Admin::PansController
 
   protected
   def expire_cache
-    expire_page :controller => 'pages', :action => :selection
+    expire_page posts_path
   end
 end
 

@@ -4,6 +4,8 @@ Slide -> SlideImage, Post o Selection en función del rol
 CardFile -> PanFile
 Image -> MainImage
 
+19/03/2012
+- Visitar las noticias desde la zona de administración
 
 31/1/2012
   * SelectionCard ahora muestra las selecciones
