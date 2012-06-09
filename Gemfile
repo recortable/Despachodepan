@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '>= 3.2.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,6 +31,7 @@ end
 
 group :development do
   gem 'capistrano'
+  gem 'rvm-capistrano'
   gem 'sqlite3'
 #  gem 'thin'
 end
@@ -52,7 +53,6 @@ group :test do
   gem 'turn', :require => false
   gem 'spork', '~> 1.0rc'
 #  gem "cucumber-rails", ">= 1.0.2"
-  gem 'ruby-debug19', :require => 'ruby-debug'
   gem "factory_girl_rails", "~> 1.2"
 end
 

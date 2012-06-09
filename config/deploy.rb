@@ -28,7 +28,8 @@ role :db,  "recortable.net", :primary => true
 
 
 # Add RVM's lib directory to the load path.
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+set :rvm_type, :user
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 # Load RVM's capistrano plugin.
 require "rvm/capistrano"

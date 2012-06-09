@@ -4,6 +4,9 @@ Slide -> SlideImage, Post o Selection en función del rol
 CardFile -> PanFile
 Image -> MainImage
 
+09/06/2012
+- Actualizar gemas
+
 19/03/2012
 - Visitar las noticias desde la zona de administración
 

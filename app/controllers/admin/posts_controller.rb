@@ -37,6 +37,7 @@ class Admin::PostsController < Admin::PansController
   protected
   def expire_cache
     expire_page posts_path
+    expire_page root_path
   end
 end
 
