@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 05/09/2012
+- Migrando a servidor en linode
+
+============================================
+Big refactorings
+
+
 Slide -> SlideImage, Post o Selection en función del rol
 CardFile -> PanFile
 Image -> MainImage

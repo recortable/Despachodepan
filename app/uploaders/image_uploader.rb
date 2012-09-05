@@ -3,6 +3,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include UploaderFu
   # Include RMagick or ImageScience support:
+  # include CarrierWave::MiniMagick
   include CarrierWave::RMagick
   # include CarrierWave::ImageScience
 

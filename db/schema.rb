@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20120215190314) do
     t.string   "slug",               :limit => 300
   end
 
-  add_index "cards", ["slug"], :name => "index_cards_on_slug", :length => {"slug"=>255}
   add_index "cards", ["title"], :name => "index_cards_on_title"
   add_index "cards", ["updated_at"], :name => "index_cards_on_updated_at"
 

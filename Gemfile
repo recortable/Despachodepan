@@ -12,6 +12,7 @@ end
 
 gem 'fog'
 gem 'rmagick'
+#gem 'mini_magick'
 gem 'carrierwave'
 gem 'jquery-rails'
 
@@ -38,7 +39,8 @@ end
 
 group :production, :development do
   gem 'newrelic_rpm'
-  gem 'mysql2'
+#  gem 'mysql2'
+  gem 'pg'
 end
 
 group :test, :development do

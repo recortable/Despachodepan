@@ -9,8 +9,9 @@ class AmazonUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or ImageScience support:
   include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
   # include CarrierWave::ImageScience
-#  include CarrierWave::Meta
+  #  include CarrierWave::Meta
 
 
   # Choose what kind of storage to use for this uploader:
