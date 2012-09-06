@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+load 'deploy/assets'
 
 load "config/recipes/base"
 load "config/recipes/nginx"
