@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require 'new_relic/recipes'
 load 'deploy/assets'
 
 load "config/recipes/base"
