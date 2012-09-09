@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-require 'new_relic/recipes'
 load 'deploy/assets'
 
 load "config/recipes/base"
@@ -9,8 +8,9 @@ load "config/recipes/postgresql"
 load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
-load "config/recipes/config"
+load "config/recipes/config_files"
 load "config/recipes/assets"
+load "config/recipes/newrelic"
 
 server "176.58.98.122", :web, :app, :db, primary: true
 
@@ -23,6 +23,12 @@ set :use_sudo, false
 # nginx stuff
 set :server_names, 'despachodepan.com *.despachodepan.com'
 set :nginx_page_caching, true
+
+# newrelic settings
+set :newrelic_license_key, '0a0d3776322392d64886579d8e72499290edd79a'
+
+# config files settings
+set :config_files, ['amazon_s3.yml', 'despachodepan.yml']
 
 set :scm, "git"
 set :repository, "git@github.com:recortable/#{application}.git"
