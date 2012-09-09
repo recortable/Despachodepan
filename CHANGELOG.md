@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 09/09/2012
+- Rails version
+- Capistrano recipes
+
+
 ## 05/09/2012
 - Migrando a servidor en linode
 
