@@ -4,14 +4,23 @@ upstream despachodepan {
 
 server {
   listen 80;
-  server_name despachodepan.com *.despachodepan.com despachodepan.recortable.net;
+  server_name despachodepan.com *.despachodepan.com;
   root <%= current_path %>/public;
 
   location ^~ /assets/ {
-    gzip_static on;
-    expires max;
-    add_header Cache-Control public;
+  gzip_static on;
+  expires max;
+  add_header Cache-Control public;
   }
+
+  # CACHE
+  if (-f $document_root/cache/$uri/index.html) {
+    rewrite (.*) /cache/$1/index.html break;
+  }
+  if (-f $document_root/cache/$uri.html) {
+    rewrite (.*) /cache/$1.html break;
+  }
+
 
   try_files $uri/index.html $uri @despachodepan;
   location @despachodepan {
