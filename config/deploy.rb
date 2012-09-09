@@ -20,6 +20,10 @@ set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
+# nginx stuff
+set :server_names, 'despachodepan.com *.despachodepan.com'
+set :nginx_page_caching, true
+
 set :scm, "git"
 set :repository, "git@github.com:recortable/#{application}.git"
 set :branch, "master"
