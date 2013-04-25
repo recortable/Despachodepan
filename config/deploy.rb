@@ -1,18 +1,10 @@
 require "bundler/capistrano"
 load 'deploy/assets'
 
-load "config/recipes/base"
-load "config/recipes/nginx"
-load "config/recipes/unicorn"
-load "config/recipes/postgresql"
-load "config/recipes/nodejs"
-load "config/recipes/rbenv"
-load "config/recipes/check"
-load "config/recipes/config_files"
-load "config/recipes/assets"
-load "config/recipes/newrelic"
+load "config/recipes/all"
 
-server "176.58.98.122", :web, :app, :db, primary: true
+#server "176.58.98.122", :web, :app, :db, primary: true
+server "198.199.73.200", :web, :app, :db, primary: true
 
 set :user, "deployer"
 set :application, "Despachodepan"
@@ -33,6 +25,14 @@ set :config_files, ['amazon_s3.yml', 'despachodepan.yml']
 set :scm, "git"
 set :repository, "git@github.com:recortable/#{application}.git"
 set :branch, "master"
+
+#set :host, 'despachodepan.com'
+set :host, 'nu.despachodepan.com'
+
+# RBENV bundle stuff
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true

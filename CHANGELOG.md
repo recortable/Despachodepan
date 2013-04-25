@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 25/4/2013
+- Mover a servidor de digital ocean
+
 ## 09/09/2012
 - Rails version
 - Capistrano recipes
