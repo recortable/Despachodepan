@@ -14,7 +14,7 @@ gem 'fog'
 gem 'rmagick'
 #gem 'mini_magick'
 gem 'carrierwave'
-gem 'jquery-rails'
+gem 'jquery-rails', '2.1.2'
 
 gem 'acts_as_list'
 gem 'decent_exposure'
